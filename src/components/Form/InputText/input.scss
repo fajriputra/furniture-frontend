@@ -1,0 +1,44 @@
+.input-text {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  .input-group {
+    background-color: #ffffff;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    .input-group-text {
+      pointer-events: none;
+      border: 0;
+      cursor: auto;
+      padding: 0;
+
+      width: 45px;
+      height: 45px;
+      display: flex;
+      justify-content: center;
+      background-color: #808080;
+      position: absolute;
+      z-index: 999;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .form-control {
+      border-radius: 12px;
+      outline: 0;
+      box-shadow: none;
+      background-color: #d8d8d8;
+      padding: 0.575rem 20px;
+      height: 60px;
+
+      &::placeholder {
+        color: #707070;
+      }
+    }
+  }
+}

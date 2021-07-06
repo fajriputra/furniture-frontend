@@ -1,0 +1,19 @@
+.categories {
+  &-select {
+    // display: flex;
+    padding: 20px 0 0 0;
+
+    @media (min-width: 992px) {
+      display: flex;
+      padding: 8px 0 0 0;
+    }
+
+    p.paragraph {
+      margin: 0 20px 20px 0;
+
+      @media (min-width: 992px) {
+        margin-right: 20px;
+      }
+    }
+  }
+}

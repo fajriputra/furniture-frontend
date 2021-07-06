@@ -1,0 +1,27 @@
+.breadcrumb {
+  background-color: #e5e5e5;
+  border-radius: 0;
+  height: 50px;
+
+  @media (min-width: 992px) {
+    padding-left: 9%;
+  }
+
+  li.breadcrumb-item::before {
+    float: none;
+  }
+
+  &-item {
+    margin: auto 0;
+    &.active {
+      a {
+        color: #000000;
+        font-weight: 600;
+      }
+    }
+
+    a {
+      color: #808080;
+    }
+  }
+}

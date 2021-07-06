@@ -1,0 +1,155 @@
+/*!
+ * Bootstrap v5.0.2 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&family=DM+Sans:wght@500;700&display=swap");
+
+// scss-docs-start import-stack
+// Configuration
+@import "functions";
+@import "variables";
+@import "mixins";
+@import "utilities";
+
+// Layout & components
+@import "root";
+@import "reboot";
+@import "type";
+@import "images";
+@import "containers";
+@import "grid";
+@import "container-grid";
+@import "tables";
+@import "forms";
+@import "buttons";
+@import "transitions";
+@import "dropdown";
+@import "button-group";
+@import "nav";
+@import "navbar";
+@import "card";
+@import "accordion";
+@import "breadcrumb";
+@import "pagination";
+@import "badge";
+@import "alert";
+@import "progress";
+@import "list-group";
+@import "close";
+@import "toasts";
+@import "modal";
+@import "tooltip";
+@import "popover";
+@import "carousel";
+@import "spinners";
+@import "offcanvas";
+
+// Helpers
+@import "helpers";
+
+// Utilities
+@import "utilities/api";
+// scss-docs-end import-stack
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.img-cover {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.img-contain {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.btn {
+  font-size: 18px;
+  font-family: "Assistant", sans-serif;
+  border-radius: 12px;
+  color: #000000;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+span.span-text {
+  color: #fe9502;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: "DM Sans", sans-serif;
+  color: #000000;
+
+  @media (min-width: 992px) {
+    font-size: 42px;
+  }
+}
+
+p.paragraph {
+  font-size: 22px;
+  margin: 22px auto 30px;
+  color: #000000;
+
+  @media (min-width: 992px) {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+}
+
+.error-helpers {
+  color: red;
+  margin-left: -30%;
+  margin-top: -15px;
+}
+
+.card {
+  border-radius: 0.9375rem;
+
+  @media (min-width: 992px) {
+    margin-right: 30px;
+  }
+
+  .img-wrapper {
+    height: 100%;
+    margin-bottom: 0;
+    border-radius: 0.9375rem;
+    overflow: hidden;
+  }
+
+  .meta-wrapper {
+    .btn {
+      display: flex;
+      justify-content: space-between;
+      margin-left: -10px;
+      margin-right: -10px;
+
+      h5 {
+        font-weight: 600;
+      }
+
+      p {
+        color: #017865;
+      }
+    }
+  }
+}
+
+section {
+  margin-bottom: 50px;
+
+  @media (min-width: 992px) {
+    margin-bottom: 70px;
+  }
+}

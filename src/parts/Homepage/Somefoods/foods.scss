@@ -1,0 +1,29 @@
+.foods {
+  color: #000000;
+  &-wrapper {
+    &-title {
+      position: relative;
+
+      @media (min-width: 992px) {
+        text-align: center;
+      }
+
+      .paragraph {
+        @media (max-width: 768px) {
+          text-align: center;
+        }
+      }
+
+      .see-all {
+        position: absolute;
+        top: 11%;
+        right: 0;
+
+        &-btn > svg {
+          margin-top: -2px;
+          height: 15px;
+        }
+      }
+    }
+  }
+}

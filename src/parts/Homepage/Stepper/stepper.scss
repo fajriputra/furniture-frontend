@@ -1,0 +1,52 @@
+.stepper {
+  color: #000000;
+  &-info {
+    &-heading {
+      font-weight: 500;
+    }
+  }
+
+  .column {
+    @media (min-width: 992px) {
+      width: 18%;
+    }
+
+    .icon {
+      display: none;
+
+      @media (min-width: 992px) {
+        position: relative;
+        top: -74%;
+        right: -94%;
+        display: block;
+      }
+    }
+  }
+
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: #017865;
+    width: 120px;
+    height: 120px;
+    border-radius: 30px;
+  }
+
+  &-content {
+    h4 {
+      font-family: "DM Sans", sans-serif;
+      margin: 15px auto 8px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+
+      @media (min-width: 992px) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

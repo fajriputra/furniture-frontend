@@ -1,0 +1,20 @@
+.subscribe {
+  form {
+    @media (min-width: 992px) {
+      display: flex;
+    }
+    .btn-send {
+      background-color: #017865;
+      padding: 0 30px;
+      color: #ffffff;
+      font-weight: 600;
+      height: 60px;
+      width: 100%;
+
+      @media (min-width: 992px) {
+        width: auto;
+        margin-left: 20px;
+      }
+    }
+  }
+}
