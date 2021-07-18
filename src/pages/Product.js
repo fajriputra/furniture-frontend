@@ -2,13 +2,12 @@ import React from "react";
 
 import Header from "components/Header";
 import Breadcrumbs from "components/Breadcrumbs";
-import Categories from "parts/Product/Categories";
-import Tags from "parts/Product/Tags";
-import Products from "parts/Product/Products";
-import Pagination from "parts/Product/Pagination";
+import Products from "parts/Products";
 import Sitelink from "components/Sitelink";
+import useScrollToTop from "hooks/useScrollToTop";
 
 export default function Product(props) {
+  useScrollToTop();
   return (
     <>
       <Header {...props} />
@@ -26,12 +25,7 @@ export default function Product(props) {
           ]}
         />
       </section>
-      <Categories />
-      <Tags />
       <Products />
-      <section>
-        <Pagination />
-      </section>
       <Sitelink />
     </>
   );

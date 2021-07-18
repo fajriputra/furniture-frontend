@@ -17,7 +17,7 @@
     padding-top: 15px;
 
     h5 {
-      color: #ffffff;
+      // color: #ffffff;
       font-weight: 600;
       margin-bottom: 20px;
     }
@@ -28,6 +28,10 @@
 
       a {
         color: #ffffff;
+
+        &:hover {
+          color: #fe9502;
+        }
 
         svg {
           width: 20px;

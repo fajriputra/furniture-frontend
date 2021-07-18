@@ -1,16 +1,45 @@
 import React from "react";
 
-import Logo from "assets/images/icons/icon-logo.svg";
-import { ReactComponent as IconSearchHeader } from "assets/images/icons/icon-search-header.svg";
-import { ReactComponent as IconCartHeader } from "assets/images/icons/icon-cart-header.svg";
+import { useSelector } from "react-redux";
 
+import { ReactComponent as IconCartHeader } from "assets/images/icons/icon-cart-header.svg";
+import { formatTime } from "helpers/formatTime";
+
+import Logo from "assets/images/icons/icon-logo.svg";
 import Button from "components/Button";
 
 import "./header.scss";
 
 export default function Header(props) {
+  const auth = useSelector((state) => state.auth);
+
   const getNavLinksClass = (path) => {
     return props.location.pathname === path ? " active" : "";
+  };
+
+  const userLink = () => {
+    return (
+      <>
+        <div className="line">|</div>
+        <Button type="link" className="btn p-0" href="/account">
+          <h5 className="auth-user">
+            {formatTime()},{" "}
+            <span className="text-capitalize">{auth?.user?.name}!</span>
+          </h5>
+        </Button>
+        <Button type="link" className="btn p-0" href="/account">
+          <div className="auth-image rounded-circle d-flex justify-content-center align-items-center">
+            <span className="fw-bold">
+              {" "}
+              {auth?.user?.name?.slice(0, 1).toUpperCase()}
+            </span>
+          </div>
+        </Button>
+        <Button type="link" className="btn" href="/cart">
+          <IconCartHeader />
+        </Button>
+      </>
+    );
   };
 
   return (
@@ -51,13 +80,19 @@ export default function Header(props) {
                 </Button>
               </li>
             </ul>
-
-            <Button type="button" className="nav-link ms-4 btn-type-button">
-              <IconSearchHeader />
-            </Button>
-            <Button type="link" className="nav-link btn-cart" href="/cart">
-              <IconCartHeader />
-            </Button>
+            {auth?.user ? (
+              userLink()
+            ) : (
+              <>
+                <Button
+                  type="link"
+                  className="btn btn-login mx-3"
+                  href="/login"
+                >
+                  Sign in
+                </Button>
+              </>
+            )}
           </div>
         </nav>
       </div>

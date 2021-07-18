@@ -8,7 +8,13 @@ import Button from "components/Button";
 
 import "./hero.scss";
 
-export default function Hero() {
+export default function Hero(props) {
+  const showProduct = () => {
+    window.scrollTo({
+      top: props.refProduct.current.offsetTop - 30,
+      behavior: "smooth",
+    });
+  };
   return (
     <section className="hero">
       <div className="container">
@@ -24,15 +30,12 @@ export default function Hero() {
                 furniture that you dream of today
               </p>
             </div>
-            <Button className="btn btn-shop" type="link" href="#product">
-              Shop Now
-            </Button>
             <Button
-              className="btn bg-transparent btn-get-started fw-light"
-              type="link"
-              href="/login"
+              className="btn btn-shop"
+              href="#product"
+              onClick={showProduct}
             >
-              Get Started
+              Shop Now
             </Button>
           </div>
           <div className="col-sm-12 col-md-7">

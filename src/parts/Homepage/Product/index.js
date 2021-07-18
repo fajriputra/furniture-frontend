@@ -7,14 +7,14 @@ import Feature3 from "assets/images/feature-3.jpg";
 
 import Button from "components/Button";
 
-import "./foods.scss";
+import "./product.scss";
 
-export default function Somefood() {
+export default function Product(props) {
   return (
-    <section className="foods" id="product">
+    <section className="product" id="product" ref={props.refProduct}>
       <div className="container">
-        <div className="foods-wrapper">
-          <div className="foods-wrapper-title">
+        <div className="product-wrapper">
+          <div className="product-wrapper-title">
             <h1 className="fw-bold">Featured Product</h1>
             <p className="paragraph">One of our superior products</p>
             <div className="see-all">
@@ -42,8 +42,8 @@ export default function Somefood() {
                     type="link"
                     href="/products"
                   >
-                    <h5>Sogo grey kitchen</h5>
-                    <p>$22.99</p>
+                    <h5>Gray Wardrobe</h5>
+                    <p>IDR 300000</p>
                   </Button>
                 </div>
               </div>
@@ -62,8 +62,8 @@ export default function Somefood() {
                     type="link"
                     href="/products"
                   >
-                    <h5>Oasis work table</h5>
-                    <p>$33.99</p>
+                    <h5>Relaxy Table</h5>
+                    <p>IDR 400000</p>
                   </Button>
                 </div>
               </div>
@@ -82,8 +82,8 @@ export default function Somefood() {
                     type="link"
                     href="/products"
                   >
-                    <h5>Square dining table</h5>
-                    <p>$44.99</p>
+                    <h5>Minimalize Table</h5>
+                    <p>IDR 350000</p>
                   </Button>
                 </div>
               </div>

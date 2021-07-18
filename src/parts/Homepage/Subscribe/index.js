@@ -1,25 +1,24 @@
 import React from "react";
 
+import { useForm } from "react-hook-form";
+
 import Button from "components/Button";
 import InputText from "components/Form/InputText";
 
 import "./subscribe.scss";
-import useForm from "hooks/useForm";
 
 export default function Subscribe(props) {
-  const { form, handleChange } = useForm({
-    email: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    trigger,
+  } = useForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (form.email.length === 0) {
-      alert("form tidak boleh kosong");
-    } else {
-      alert(`${form.email} tapi belum berfungsi sepenuhnya`);
+  const onSubmit = () => {
+    alert("belum sempurna");
 
-      window.location.reload();
-    }
+    window.location.reload();
   };
 
   return (
@@ -34,14 +33,32 @@ export default function Subscribe(props) {
           </div>
           <div className="row justify-content-center">
             <div className="col-12 col-md-6">
-              <form onSubmit={handleSubmit}>
-                <InputText
-                  name="email"
-                  type="email"
-                  value={form.email}
-                  placeholder="Your email address"
-                  onChange={handleChange}
-                />
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="form-group position-relative w-100">
+                  <InputText
+                    inputClassName={errors?.email && " invalid"}
+                    name="email"
+                    type="email"
+                    placeholder="Your Email Address"
+                    {...register("email", {
+                      required: "Email is required",
+                      minLength: {
+                        value: 3,
+                        message: "Email must be at least 3 characters",
+                      },
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Must be a valid email address",
+                      },
+                    })}
+                    onKeyUp={() => {
+                      trigger("email");
+                    }}
+                  />
+                  {errors?.email && (
+                    <p className="error-helpers">{errors?.email?.message}</p>
+                  )}
+                </div>
                 <Button className="btn btn-send">Send</Button>
               </form>
             </div>

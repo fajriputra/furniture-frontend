@@ -15,7 +15,7 @@ import "./sitelink.scss";
 
 export default function Sitelink(props) {
   return (
-    <section className="sitelink">
+    <section className="sitelink text-white">
       <div className="container">
         <div className="row">
           <div className="col-auto col-md-auto sitelink-logo">
@@ -84,8 +84,8 @@ export default function Sitelink(props) {
                   type="link"
                   href="tel:+622128992988"
                 >
-                  <IconPhone />
-                  <span className="ms-3">021 - 2899 - 2988</span>
+                  <IconPhone className="me-3" />
+                  021 - 2899 - 2988
                 </Button>
               </li>
               <li className="list-group-item bg-transparent">
@@ -96,8 +96,8 @@ export default function Sitelink(props) {
                   target="_blank"
                   href="mailto:support@lakecoast.com"
                 >
-                  <IconMessage />
-                  <span className="ms-3">lakecoast@gmail.com</span>
+                  <IconMessage className="me-3" />
+                  lakecoast@gmail.com
                 </Button>
               </li>
             </ul>

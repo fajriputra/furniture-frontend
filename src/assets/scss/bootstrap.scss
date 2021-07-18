@@ -60,31 +60,24 @@ html {
   box-sizing: border-box;
 }
 
-.img-cover {
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-}
+section {
+  margin-bottom: 50px;
 
-.img-contain {
-  object-fit: contain;
-  height: 100%;
-  width: 100%;
-}
-
-.btn {
-  font-size: 18px;
-  font-family: "Assistant", sans-serif;
-  border-radius: 12px;
-  color: #000000;
-
-  &:focus {
-    box-shadow: none;
+  @media (min-width: 992px) {
+    margin-bottom: 70px;
   }
 }
 
-span.span-text {
-  color: #fe9502;
+label {
+  font-weight: 600;
+  font-family: "DM Sans", sans-serif;
+  letter-spacing: 1px;
+}
+
+span {
+  &.span-text {
+    color: #fe9502;
+  }
 }
 
 h1 {
@@ -97,21 +90,83 @@ h1 {
   }
 }
 
-p.paragraph {
-  font-size: 22px;
-  margin: 22px auto 30px;
-  color: #000000;
+p {
+  &.paragraph {
+    font-size: 22px;
+    margin: 22px auto 30px;
+    color: #000000;
 
-  @media (min-width: 992px) {
-    font-size: 24px;
-    margin-bottom: 40px;
+    @media (min-width: 992px) {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &.link {
+    font-size: 1rem;
+    color: #4233ab;
+  }
+
+  &.error-helpers {
+    font-size: 14px;
+    color: red;
+    margin-top: -15px;
+    margin-bottom: 8px;
   }
 }
 
-.error-helpers {
-  color: red;
-  margin-left: -30%;
-  margin-top: -15px;
+.form-class {
+  width: 100%;
+
+  @media (min-width: 992px) {
+    width: 60%;
+  }
+}
+
+.invalid {
+  border: 1px solid red;
+}
+
+.img-cover {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.img-contain {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.centered {
+  padding: 100px 20px;
+}
+
+.btn {
+  font-size: 18px;
+  font-family: "Assistant", sans-serif;
+  border-radius: 12px;
+  color: #000000;
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &-login {
+    background-color: #017865;
+    padding: 10px 25px;
+    color: #ffffff;
+    font-weight: 600;
+
+    &:hover {
+      color: #ffffff;
+    }
+
+    &.btn-loading {
+      padding: 15px 0;
+    }
+  }
 }
 
 .card {
@@ -119,6 +174,17 @@ p.paragraph {
 
   @media (min-width: 992px) {
     margin-right: 30px;
+  }
+
+  &.card-other {
+    border-radius: 0;
+    height: 100vh;
+    background-color: #f5f5f5;
+    margin-right: 0;
+
+    &.register {
+      height: 100%;
+    }
   }
 
   .img-wrapper {
@@ -146,10 +212,9 @@ p.paragraph {
   }
 }
 
-section {
-  margin-bottom: 50px;
-
-  @media (min-width: 992px) {
-    margin-bottom: 70px;
-  }
+.password-toggle-icon {
+  position: absolute;
+  top: 53%;
+  right: 1.125rem;
+  z-index: 9;
 }

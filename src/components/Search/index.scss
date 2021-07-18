@@ -1,0 +1,16 @@
+.search {
+  margin-bottom: 30px;
+  @media (min-width: 992px) {
+    padding-right: 65px;
+  }
+
+  //   &-input {
+  //     background-color: #d8d8d8;
+  //   }
+
+  form {
+    @media (min-width: 992px) {
+      width: 50%;
+    }
+  }
+}
