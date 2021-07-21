@@ -4,5 +4,10 @@
     width: 120px;
     height: 50px;
     color: #707070;
+
+    &.active {
+      background-color: #ffb855;
+      color: #ffffff;
+    }
   }
 }

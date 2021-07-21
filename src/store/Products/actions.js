@@ -1,4 +1,4 @@
-// import debounce from "debounce-promise";
+import debounce from "debounce-promise";
 import {
   SUCCESS_FETCHING_PRODUCT,
   START_FETCHING_PRODUCT,
@@ -14,7 +14,7 @@ import {
 } from "./constants";
 import { getProducts } from "helpers/api/product";
 
-// let debouncedFetchProducts = debounce(getProducts, 1000);
+let debouncedFetchProducts = debounce(getProducts, 1000);
 
 export const fetchProducts = () => {
   return async (dispatch, getState) => {
@@ -37,7 +37,7 @@ export const fetchProducts = () => {
     try {
       let {
         data: { data, count },
-      } = await getProducts(params);
+      } = await debouncedFetchProducts(params);
 
       dispatch(successFetchingProducts({ data, count }));
     } catch (err) {
@@ -65,10 +65,10 @@ export const errorFetchingProducts = () => {
   };
 };
 
-export const setPage = (page = 1) => {
+export const setPage = (number = 1) => {
   return {
     type: SET_PAGE,
-    currentPage: page,
+    currentPage: number,
   };
 };
 

@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import SyncLoader from "react-spinners/SyncLoader";
 
 import { ReactComponent as BtnCart } from "assets/images/icons/icon-cart-header.svg";
 import { apiHost } from "config.js";
-import Button from "components/Button";
-
-import "./products.scss";
 import {
   fetchProducts,
   setPage,
@@ -16,10 +13,15 @@ import {
   setCategory,
   toggleTag,
 } from "store/Products/actions";
+
+import Button from "components/Button";
 import Categories from "components/Categories";
 import Tags from "components/Tags";
 import Pagination from "components/Pagination";
 import Search from "components/Search";
+
+import "./products.scss";
+import { tags } from "helpers/tags";
 
 export default function Products() {
   const dispatch = useDispatch();
@@ -42,11 +44,24 @@ export default function Products() {
           onClick={(category) => dispatch(setCategory(category))}
           isActive={products.category}
         />
+
         <Search
           value={products.keyword}
           onChange={(e) => dispatch(setKeyword(e.target.value))}
         />
-        <Tags />
+
+        {tags[products.category]?.map((item, index) => {
+          return (
+            <div key={index}>
+              <Tags
+                onClick={() => dispatch(toggleTag(item))}
+                isActive={products.tags.includes(item)}
+              >
+                {item}
+              </Tags>
+            </div>
+          );
+        })}
 
         <div className="row justify-content-center">
           {!products?.data?.length ? (
@@ -68,7 +83,10 @@ export default function Products() {
                         className="img-contain"
                       />
                     </figure>
-                    <Button className="btn mt-1 px-0">
+                    <Button
+                      className="btn mt-1"
+                      onClick={(_) => alert("fungsi cart belum jalan")}
+                    >
                       <div className="product-title">
                         <div className="text">
                           <h5>{product.name}</h5>
@@ -82,15 +100,14 @@ export default function Products() {
               );
             })
           )}
-          <div>
-            <Pagination
-              page={products.currentPage}
-              perPage={products.perPage}
-              onChange={(page) => dispatch(setPage(page))}
-              onNext={() => dispatch(nextPage())}
-              onPrev={() => dispatch(prevPage())}
-            />
-          </div>
+          <Pagination
+            totalItems={products.totalItems}
+            page={products.currentPage}
+            perPage={products.perPage}
+            onChange={(page) => dispatch(setPage(page))}
+            onNext={() => dispatch(nextPage())}
+            onPrev={() => dispatch(prevPage())}
+          />
         </div>
       </div>
     </section>
