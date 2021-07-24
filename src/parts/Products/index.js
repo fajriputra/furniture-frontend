@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import SyncLoader from "react-spinners/SyncLoader";
-import { Pagination } from "@material-ui/lab";
-import { Box } from "@material-ui/core";
 
 import { ReactComponent as BtnCart } from "assets/images/icons/icon-cart-header.svg";
 import { apiHost } from "config.js";
@@ -11,8 +9,7 @@ import {
   setKeyword,
   setCategory,
   toggleTag,
-  nextPage,
-  prevPage,
+  setPage,
 } from "store/Products/actions";
 
 import { tags } from "helpers/tags";
@@ -22,6 +19,7 @@ import Tags from "components/Tags";
 import Search from "components/Search";
 
 import "./products.scss";
+import Paginations from "components/Pagination";
 
 export default function Products() {
   const dispatch = useDispatch();
@@ -36,14 +34,6 @@ export default function Products() {
     products.category,
     products.tags,
   ]);
-
-  const handleChange = (nextPage, prevPage) => {
-    if (nextPage) {
-      dispatch(nextPage());
-    } else {
-      dispatch(prevPage());
-    }
-  };
 
   return (
     <section className="products">
@@ -108,15 +98,13 @@ export default function Products() {
               );
             })
           )}
-          <Box display="flex" justifyContent="center">
-            <Pagination
-              count={10}
-              page={products.currentPage}
-              onChange={handleChange}
-              siblingCount={1}
-              boundaryCount={1}
-            />
-          </Box>
+
+          <Paginations
+            total={products.totalItems}
+            itemPerPage={products.perPage}
+            currentPage={products.currentPage}
+            onPageChange={(page) => dispatch(setPage(page))}
+          />
         </div>
       </div>
     </section>
