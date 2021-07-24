@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "assets/scss/bootstrap.scss";
+// import "upkit/dist/style.min.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 

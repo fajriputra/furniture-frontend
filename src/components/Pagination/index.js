@@ -1,84 +1,12 @@
-import React from "react";
+// import React from "react";
+// import { useSelector, useDispatch } from "react-redux";
+// import { Pagination } from "@material-ui/lab";
+// import { Box } from "@material-ui/core";
+// import { nextPage } from "store/Products/actions";
 
-import Button from "components/Button";
+// export default function Paginations() {
+//   const dispatch = useDispatch();
+//   const products = useSelector((state) => state.products);
 
-export default function Pagination({
-  totalItems,
-  page,
-  perPage,
-  onChange,
-  onNext,
-  onPrev,
-}) {
-  return (
-    <nav>
-      <ul className="pagination justify-content-center">
-        <li className="page-item">
-          <Button
-            className="page-link"
-            totalItems={totalItems}
-            page={page}
-            perPage={perPage}
-            onChange={onChange}
-            onNext={onNext}
-            onPrev={onPrev}
-          >
-            Previous
-          </Button>
-        </li>
-        <li className="page-item">
-          <Button
-            className="page-link"
-            totalItems={totalItems}
-            page={page}
-            perPage={perPage}
-            onChange={onChange}
-            onNext={onNext}
-            onPrev={onPrev}
-          >
-            1
-          </Button>
-        </li>
-        <li className="page-item">
-          <Button
-            className="page-link"
-            totalItems={totalItems}
-            page={page}
-            perPage={perPage}
-            onChange={onChange}
-            onNext={onNext}
-            onPrev={onPrev}
-          >
-            2
-          </Button>
-        </li>
-        <li className="page-item">
-          <Button
-            className="page-link"
-            totalItems={totalItems}
-            page={page}
-            perPage={perPage}
-            onChange={onChange}
-            onNext={onNext}
-            onPrev={onPrev}
-          >
-            3
-          </Button>
-        </li>
-        <li className="page-item">
-          <Button
-            className="page-link"
-            totalItems={totalItems}
-            page={page}
-            perPage={perPage}
-            onChange={onChange}
-            onNext={onNext}
-            onPrev={onPrev}
-          >
-            Next
-          </Button>
-        </li>
-      </ul>
-    </nav>
-  );
-}
+//   return <></>;
+// }

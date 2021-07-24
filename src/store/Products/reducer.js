@@ -20,19 +20,19 @@ const statuslist = {
 };
 
 const initialState = {
-  data: [], // menyimpan data products
-  currentPage: 1, // set page aktif dgn default 1
-  totalItems: -1, // total item / produk, default -1 alias belum diketahui
-  perPage: 6, // menampilkan item perPage, default 6
-  keyword: "", // untuk filtering product berdasarkan nama
-  category: [], // category yang sedang aktif
-  tags: [], // tags yang sedang aktif
-  status: statuslist.idle, // status req data ke server
+  data: [], // save products data
+  currentPage: 1, // set page active and default 1
+  totalItems: -1, // total items/products, default -1 as unknown
+  perPage: 6, // display items per Page, default 6
+  keyword: "", // filtering products based on keywords
+  category: [], // currently active categories
+  tags: [], // currently active tags
+  status: statuslist.idle, // status req data to server
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    // memulai fetching produk
+    // start fetching product
     case START_FETCHING_PRODUCT:
       return { ...state, status: statuslist.process };
     // success fetching
@@ -64,16 +64,16 @@ export default function reducer(state = initialState, action) {
         tags: action.tags,
       };
     case TOGGLE_CATEGORY:
-      // apakah tag yang dikirimkan oleh action (action.tag) saat ini sudah ada / aktif
+      // does the tag sent by action (action.category) currently exist/active
       if (!state.category.includes(action.category)) {
-        // jika tidak, set tags ke dalam state / aktifkan
+        // otherwise, set category to state /enable
         return {
           ...state,
           currentPage: 1,
           category: [...state.category, action.category],
         };
       } else {
-        // jika terdapat pada state, filter tags berdasarkan tags yang aktif, lalu nonaktifkan/hapus
+        // if it exists in state, filter based on active category, then disable/delete
         return {
           ...state,
           currentPage: 1,
@@ -81,12 +81,12 @@ export default function reducer(state = initialState, action) {
         };
       }
     case TOGGLE_TAG:
-      // apakah tag yang dikirimkan oleh action (action.tag) saat ini sudah ada / aktif
+      // does the tag sent by action (action.tag) currently exist/active
       if (!state.tags.includes(action.tag)) {
-        // jika tidak, set tags ke dalam state / aktifkan
+        // otherwise, set tags to state /enable
         return { ...state, currentPage: 1, tags: [...state.tags, action.tag] };
       } else {
-        // jika terdapat pada state, filter tags berdasarkan tags yang aktif, lalu nonaktifkan/hapus
+        // if it exists in state, filter tags based on active category, then disable/delete
         return {
           ...state,
           currentPage: 1,

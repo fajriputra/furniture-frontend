@@ -6,7 +6,7 @@ import Button from "components/Button";
 
 import "./categories.scss";
 
-export default function Categories({ onClick, isActive }) {
+export default function Categories({ onChange, isActive }) {
   const [ctg, setCtg] = useState([]);
   const [, setLoading] = useState(true);
 
@@ -50,7 +50,7 @@ export default function Categories({ onClick, isActive }) {
                     <Button
                       key={item._id}
                       className="btn p-0"
-                      onClick={onClick}
+                      onChange={onChange}
                       isActive={isActive}
                     >
                       <div>

@@ -1,27 +1,27 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import SyncLoader from "react-spinners/SyncLoader";
+import { Pagination } from "@material-ui/lab";
+import { Box } from "@material-ui/core";
 
 import { ReactComponent as BtnCart } from "assets/images/icons/icon-cart-header.svg";
 import { apiHost } from "config.js";
 import {
   fetchProducts,
-  setPage,
-  nextPage,
-  prevPage,
   setKeyword,
   setCategory,
   toggleTag,
+  nextPage,
+  prevPage,
 } from "store/Products/actions";
 
+import { tags } from "helpers/tags";
 import Button from "components/Button";
 import Categories from "components/Categories";
 import Tags from "components/Tags";
-import Pagination from "components/Pagination";
 import Search from "components/Search";
 
 import "./products.scss";
-import { tags } from "helpers/tags";
 
 export default function Products() {
   const dispatch = useDispatch();
@@ -37,12 +37,20 @@ export default function Products() {
     products.tags,
   ]);
 
+  const handleChange = (nextPage, prevPage) => {
+    if (nextPage) {
+      dispatch(nextPage());
+    } else {
+      dispatch(prevPage());
+    }
+  };
+
   return (
     <section className="products">
       <div className="container">
         <Categories
-          onClick={(category) => dispatch(setCategory(category))}
-          isActive={products.category}
+          isActive={[products.category ? " active" : ""].join(" ")}
+          onChange={(category) => dispatch(setCategory(category))}
         />
 
         <Search
@@ -64,7 +72,7 @@ export default function Products() {
         })}
 
         <div className="row justify-content-center">
-          {!products?.data?.length ? (
+          {products.status === "process" || !products?.data?.length ? (
             <div className="text-center mb-5">
               <SyncLoader color="#d8d8d8" />
             </div>
@@ -100,14 +108,15 @@ export default function Products() {
               );
             })
           )}
-          <Pagination
-            totalItems={products.totalItems}
-            page={products.currentPage}
-            perPage={products.perPage}
-            onChange={(page) => dispatch(setPage(page))}
-            onNext={() => dispatch(nextPage())}
-            onPrev={() => dispatch(prevPage())}
-          />
+          <Box display="flex" justifyContent="center">
+            <Pagination
+              count={10}
+              page={products.currentPage}
+              onChange={handleChange}
+              siblingCount={1}
+              boundaryCount={1}
+            />
+          </Box>
         </div>
       </div>
     </section>
