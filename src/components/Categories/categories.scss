@@ -1,23 +1,14 @@
 .categories {
   &-select {
-    // display: flex;
     padding: 20px 0 0 0;
 
     @media (min-width: 992px) {
       display: flex;
-      padding: 8px 0 0 0;
+      padding-top: 8px;
     }
 
     p.paragraph {
-      margin: 0 20px 20px 0;
-
-      @media (min-width: 992px) {
-        margin-right: 20px;
-      }
+      margin: 0;
     }
-  }
-
-  .active {
-    border: 1px solid red;
   }
 }

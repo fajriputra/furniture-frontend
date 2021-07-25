@@ -6,7 +6,7 @@ import Button from "components/Button";
 
 import "./categories.scss";
 
-export default function Categories({ onChange, isActive }) {
+export default function Categories({ isActive, setActive, onChange }) {
   const [ctg, setCtg] = useState([]);
   const [, setLoading] = useState(true);
 
@@ -24,7 +24,7 @@ export default function Categories({ onChange, isActive }) {
           setCtg(data);
         }
       } catch (error) {
-        error();
+        alert(error);
       }
     };
 
@@ -48,14 +48,20 @@ export default function Categories({ onChange, isActive }) {
                 ctg.map((item) => {
                   return (
                     <Button
+                      type="button"
                       key={item._id}
-                      className="btn p-0"
+                      className="btn p-0 me-3"
+                      onClick={() => setActive(isActive)}
                       onChange={onChange}
-                      isActive={isActive}
                     >
-                      <div>
-                        <p className="paragraph fw-light">{item.name}</p>
-                      </div>
+                      <p
+                        className={[
+                          "paragraph",
+                          isActive ? " fw-bold" : " fw-light",
+                        ].join(" ")}
+                      >
+                        {item.name}
+                      </p>
                     </Button>
                   );
                 })

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import SyncLoader from "react-spinners/SyncLoader";
 
@@ -15,14 +15,15 @@ import {
 import { tags } from "helpers/tags";
 import Button from "components/Button";
 import Categories from "components/Categories";
-import Tags from "components/Tags";
 import Search from "components/Search";
+import Tags from "components/Tags";
+import Paginations from "components/Pagination";
 
 import "./products.scss";
-import Paginations from "components/Pagination";
 
 export default function Products() {
   const dispatch = useDispatch();
+  const [active, setIsActive] = useState(null);
   const products = useSelector((state) => state.products);
 
   useEffect(() => {
@@ -39,7 +40,8 @@ export default function Products() {
     <section className="products">
       <div className="container">
         <Categories
-          isActive={[products.category ? " active" : ""].join(" ")}
+          setActive={setIsActive}
+          isActive={active === products.category ? 1 : null}
           onChange={(category) => dispatch(setCategory(category))}
         />
 
@@ -62,7 +64,7 @@ export default function Products() {
         })}
 
         <div className="row justify-content-center">
-          {products.status === "process" || !products?.data?.length ? (
+          {products.status === "process" ? (
             <div className="text-center mb-5">
               <SyncLoader color="#d8d8d8" />
             </div>
