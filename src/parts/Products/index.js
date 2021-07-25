@@ -64,7 +64,7 @@ export default function Products() {
         })}
 
         <div className="row justify-content-center">
-          {products.status === "process" ? (
+          {products.status === "process" || !products?.data?.length ? (
             <div className="text-center mb-5">
               <SyncLoader color="#d8d8d8" />
             </div>
