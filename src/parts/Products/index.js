@@ -41,7 +41,7 @@ export default function Products() {
       <div className="container">
         <Categories
           setActive={setIsActive}
-          isActive={active === products.category ? 1 : null}
+          isActive={active === products.category}
           onChange={(category) => dispatch(setCategory(category))}
         />
 
