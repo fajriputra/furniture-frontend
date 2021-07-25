@@ -40,24 +40,26 @@ export default function Paginations({
   }, [totalPages, currentPage, onPageChange]);
 
   return (
-    <div className="row justify-content-center">
-      {totalPages === 0 ? (
-        <div className="text-center">
-          <SyncLoader color="#d8d8d8" />;
-        </div>
-      ) : (
-        <Pagination className="justify-content-center">
-          <Pagination.Prev
-            onChange={() => onPageChange(dispatch(prevPage()))}
-            disabled={currentPage === 1}
-          />
-          {paginationItems}
-          <Pagination.Next
-            onChange={() => onPageChange(dispatch(nextPage()))}
-            disabled={currentPage === totalPages}
-          />
-        </Pagination>
-      )}
-    </div>
+    <section className="container">
+      <div className="row justify-content-center">
+        {totalPages === 0 ? (
+          <div className="text-center">
+            <SyncLoader color="#d8d8d8" />;
+          </div>
+        ) : (
+          <Pagination className="justify-content-center">
+            <Pagination.Prev
+              onChange={() => onPageChange(dispatch(prevPage()))}
+              disabled={currentPage === 1}
+            />
+            {paginationItems}
+            <Pagination.Next
+              onChange={() => onPageChange(dispatch(nextPage()))}
+              disabled={currentPage === totalPages}
+            />
+          </Pagination>
+        )}
+      </div>
+    </section>
   );
 }

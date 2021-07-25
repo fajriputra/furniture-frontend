@@ -35,13 +35,13 @@ export default function Categories({ isActive, setActive, onChange }) {
     <section className="categories">
       <div className="container">
         <div className="row">
-          <div className="col-md-5">
+          <div className="col-auto col-md-5">
             <h1 className="fw-bold">Product Selection</h1>
           </div>
-          <div className="col-md-7">
-            <div className="categories-select">
+          <div className="col col-md-7">
+            <div className="categories-select text-center">
               {!ctg.length ? (
-                <div className="mt-2 mx-auto">
+                <div className="loader mt-2 mx-auto">
                   <SyncLoader color="#d8d8d8" />
                 </div>
               ) : (

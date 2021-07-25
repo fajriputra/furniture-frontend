@@ -1,4 +1,13 @@
 .pagination {
+  @media (max-width: 768px) {
+    overflow-x: scroll;
+    padding-left: 40%;
+
+    .pagination::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   li:first-of-type,
   li:last-of-type,
   span.sr-only {

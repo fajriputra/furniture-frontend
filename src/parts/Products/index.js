@@ -106,14 +106,13 @@ export default function Products() {
               );
             })
           )}
-
-          <Paginations
-            total={products.totalItems}
-            itemPerPage={products.perPage}
-            currentPage={products.currentPage}
-            onPageChange={(page) => dispatch(setPage(page))}
-          />
         </div>
+        <Paginations
+          total={products.totalItems}
+          itemPerPage={products.perPage}
+          currentPage={products.currentPage}
+          onPageChange={(page) => dispatch(setPage(page))}
+        />
       </div>
     </section>
   );
