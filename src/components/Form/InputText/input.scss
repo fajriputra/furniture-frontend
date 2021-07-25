@@ -9,20 +9,20 @@
     input[type="text"],
     input[type="email"],
     input[type="tel"] {
-      color: #000000;
+      color: #8a9095;
       font-family: "Assistant", sans-serif;
     }
 
     .form-control {
       border-radius: 12px;
-      outline: 0;
+      border-color: #ced4da;
       box-shadow: none;
-      background-color: #d8d8d8;
+      background-color: #e9ecef;
       padding: 0.575rem 20px;
       height: 60px;
 
       &::placeholder {
-        color: #707070;
+        color: #adb5bd;
       }
     }
   }

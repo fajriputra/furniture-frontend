@@ -7,6 +7,14 @@
       padding-top: 8px;
     }
 
+    .btn {
+      margin-right: 1rem;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
     p.paragraph {
       margin: 0;
     }

@@ -67,7 +67,10 @@ export default function Login(props) {
   return (
     <section className="mb-0">
       <div className="row m-0">
-        <div className="d-none d-md-block col-md-6" style={{ paddingLeft: 0 }}>
+        <div
+          className="d-none d-md-block col-md-6"
+          style={{ paddingLeft: 0, height: "100vh" }}
+        >
           <div className="card card-other">
             <figure className="img-wrapper m-0">
               <img
@@ -151,7 +154,7 @@ export default function Login(props) {
                 type="link"
                 href="/forgot-password"
               >
-                <p className="link mt-2 pe-2">Forgot your password ?</p>
+                <p className="link pe-2">Forgot your password ?</p>
               </Button>
               <Button
                 className="btn btn-login btn-loading w-100 mt-4"

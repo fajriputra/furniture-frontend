@@ -38,8 +38,8 @@ export default function Categories({ isActive, setActive, onChange }) {
           <div className="col-md-5">
             <h1 className="fw-bold">Product Selection</h1>
           </div>
-          <div className="col-auto col-md-7">
-            <div className="categories-select text-center">
+          <div className="col-md-7">
+            <div className="categories-select">
               {!ctg.length ? (
                 <div className="mt-2 mx-auto">
                   <SyncLoader color="#d8d8d8" />
@@ -50,7 +50,7 @@ export default function Categories({ isActive, setActive, onChange }) {
                     <Button
                       type="button"
                       key={item._id}
-                      className="btn p-0 me-3"
+                      className="btn p-0"
                       onClick={() => setActive(isActive)}
                       onChange={onChange}
                     >

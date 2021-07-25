@@ -71,7 +71,7 @@ export default function Products() {
           ) : products?.data?.length === 0 ? (
             <div className="text-center mb-5">
               <p className="paragraph mb-0">
-                Product you are looking for cannot be found :(
+                Oopss🙊, Product you are looking for cannot be found...
               </p>
             </div>
           ) : (
