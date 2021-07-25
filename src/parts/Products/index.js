@@ -64,9 +64,15 @@ export default function Products() {
         })}
 
         <div className="row justify-content-center">
-          {products.status === "process" || !products?.data?.length ? (
+          {products.status === "process" ? (
             <div className="text-center mb-5">
               <SyncLoader color="#d8d8d8" />
+            </div>
+          ) : products?.data?.length === 0 ? (
+            <div className="text-center mb-5">
+              <p className="paragraph mb-0">
+                Product you are looking for cannot be found :(
+              </p>
             </div>
           ) : (
             products?.data?.map((product) => {
