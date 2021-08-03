@@ -8,21 +8,18 @@ export default function Breadcrumbs({ list, className }) {
   return (
     <nav>
       <ol className={["breadcrumb", className].join(" ")}>
-        {list?.map?.((item, index) => {
+        {list?.map?.((item, i) => {
           return (
-            <li
-              className={`breadcrumb-item${
-                index === list.length - 1 ? " active" : ""
-              }`}
-              key={`breadcrumb-${index}`}
-            >
-              {index === item.length ? (
-                item.name
-              ) : (
-                <Button className="btn" type="link" href={item.url}>
-                  {item.name}
-                </Button>
-              )}
+            <li className="breadcrumb-item" key={`breadcrumb-${i}`}>
+              <Button
+                className={`btn${
+                  i === list.length - 1 ? " fw-bold pe-none" : ""
+                }`}
+                type={i !== list.length - 1 ? "link" : "button"}
+                href={item.url}
+              >
+                {item.name}
+              </Button>
             </li>
           );
         })}
