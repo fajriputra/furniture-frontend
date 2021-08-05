@@ -13,13 +13,13 @@ import {
 } from "store/Products/actions";
 
 import { tags } from "helpers/tags";
-import Button from "components/Button";
 import Categories from "components/Categories";
 import Search from "components/Search";
 import Tags from "components/Tags";
 import Paginations from "components/Pagination";
 
 import "./products.scss";
+import Card from "components/Card";
 
 export default function Products() {
   const dispatch = useDispatch();
@@ -63,7 +63,7 @@ export default function Products() {
           );
         })}
 
-        <div className="row justify-content-center">
+        <div className="row mobile">
           {products.status === "process" ? (
             <div className="text-center mb-5">
               <SyncLoader color="#d8d8d8" />
@@ -77,31 +77,19 @@ export default function Products() {
           ) : (
             products?.data?.map((product) => {
               return (
-                <div className="col-auto" key={product._id}>
-                  <div className="card">
-                    <figure
-                      className="img-wrapper"
-                      style={{ width: 300, height: 370 }}
-                    >
-                      <img
-                        src={`${apiHost}/images/${product.image_url}`}
-                        alt={product.name}
-                        className="img-contain"
-                      />
-                    </figure>
-                    <Button
-                      className="btn mt-1"
-                      onClick={(_) => alert("fungsi cart belum jalan")}
-                    >
-                      <div className="product-title">
-                        <div className="text">
-                          <h5>{product.name}</h5>
-                          <p>IDR {product.price}</p>
-                        </div>
-                        <BtnCart />
-                      </div>
-                    </Button>
-                  </div>
+                <div className="col-12 col-md-6 col-lg-auto" key={product._id}>
+                  <Card
+                    className="cards"
+                    btnClass="mt-1 px-0 mx-0"
+                    imgUrl={`${apiHost}/images/${product.image_url}`}
+                    imgClass="img-contain"
+                  >
+                    <div className="text">
+                      <h5>{product.name}</h5>
+                      <p>IDR {product.price}</p>
+                    </div>
+                    <BtnCart />
+                  </Card>
                 </div>
               );
             })

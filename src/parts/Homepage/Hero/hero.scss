@@ -1,45 +1,46 @@
 .hero {
   color: #000000;
   @media (min-width: 992px) {
-    margin-bottom: 200px;
+    margin-bottom: 12.5rem;
   }
 
   &-info {
     @media (min-width: 992px) {
-      padding-top: 80px;
+      padding-top: 5rem;
     }
 
     &-heading {
       font-weight: 500;
-      line-height: 58px;
+      line-height: 3.625rem;
+      font-size: 2.5rem;
 
       @media (min-width: 992px) {
         text-align: start;
-        line-height: 78px;
-        font-size: 60px;
+        line-height: 4.875rem;
+        font-size: 3.75rem;
       }
     }
     .paragraph {
       @media (min-width: 992px) {
-        font-size: 28px;
-        margin-bottom: 50px;
+        font-size: 1.75rem;
+        margin-bottom: 3.125rem;
       }
     }
   }
 
   .btn-shop {
     font-weight: 600;
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
     background-color: #017865;
     color: #ffffff;
   }
 
   .wrapper-image-hero {
     position: relative;
-    right: -12px;
+    right: -0.75rem;
     height: auto;
-    margin-top: 50px;
-    border-radius: 10px 0 0 10px;
+    margin-top: 3.125rem;
+    border-radius: 0.625rem 0 0 0.625rem;
 
     img {
       border-radius: inherit;
@@ -56,19 +57,12 @@
 
   .icon-elipse1 {
     position: absolute;
-    width: 35px;
-    height: 35px;
     background-color: #fe9502;
     border-radius: 50%;
-    bottom: -5%;
-    left: 2%;
-
-    @media (min-width: 411px) {
-      bottom: 15%;
-      left: 1.5%;
-    }
+    display: none;
 
     @media (min-width: 992px) {
+      display: block;
       width: 50px;
       height: 50px;
       bottom: 22%;
@@ -76,13 +70,10 @@
     }
 
     .icon-surface {
-      padding: 13px;
       position: relative;
-      top: -21%;
-      left: -21%;
 
       @media (min-width: 992px) {
-        padding: 10px;
+        padding: 0.625rem;
         top: 0;
         left: 0;
       }
@@ -92,32 +83,22 @@
     position: absolute;
     background-color: #fe9502;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    bottom: -18%;
-    left: 15%;
-
-    @media (min-width: 411px) {
-      bottom: 3.5%;
-    }
+    display: none;
 
     @media (min-width: 992px) {
       width: 60px;
       height: 60px;
-      bottom: -8.5%;
+      bottom: -10.5%;
       left: 54.5%;
+      display: block;
     }
 
     .icon-like {
-      padding: 25px;
       position: relative;
-      top: -50%;
-      left: -50%;
 
       @media (min-width: 992px) {
-        padding: 18px;
-        position: relative;
-        top: -10px;
+        padding: 1.125rem;
+        top: -0.625rem;
         left: -9.8px;
       }
     }

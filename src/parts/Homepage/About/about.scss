@@ -5,7 +5,7 @@
 
   .wrapper-image-about {
     position: relative;
-    left: -12px;
+    left: -0.75rem;
     margin-top: 15%;
 
     @media (min-width: 992px) {
@@ -15,7 +15,7 @@
     }
 
     .image-about {
-      border-radius: 0 10px 10px 0;
+      border-radius: 0 0.625rem 0.625rem 0;
 
       @media (min-width: 992px) {
         width: 550px;
@@ -28,15 +28,20 @@
   }
 
   &-info {
-    padding-top: 20px;
+    padding-top: 1.25rem;
 
     @media (min-width: 992px) {
-      padding-top: 65px;
-      margin-left: -50px;
+      padding-top: 4.0625rem;
+      margin-left: -3.125rem;
     }
 
     .paragraph {
       text-align: justify;
+
+      @media (max-width: 576px) {
+        line-break: anywhere;
+        font-size: 1.125rem;
+      }
     }
   }
   .read-more {
@@ -52,9 +57,14 @@
     }
 
     &-btn {
-      margin-top: -5px;
+      margin-top: -0.3125rem;
       font-weight: 600;
-      padding-left: 20px;
+      padding-left: 1.25rem;
+
+      @media (max-width: 576px) {
+        margin-top: 0;
+        font-size: 1rem;
+      }
     }
   }
 }

@@ -12,8 +12,9 @@ import Button from "components/Button";
 import Footer from "components/Footer";
 
 import "./sitelink.scss";
+import NavItemLink from "components/NavItemLink";
 
-export default function Sitelink(props) {
+export default function Sitelink() {
   return (
     <section className="sitelink text-white">
       <div className="container">
@@ -24,82 +25,102 @@ export default function Sitelink(props) {
           <div className="col-5 col-md-2 list-wrapper">
             <h5>Information</h5>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item bg-transparent">
-                <Button className="btn p-0" type="link" href="/about">
-                  About
-                </Button>
-              </li>
-              <li className="list-group-item bg-transparent">
-                <Button className="btn p-0" type="link" href="/product">
-                  Product
-                </Button>
-              </li>
-              <li className="list-group-item bg-transparent">
-                <Button className="btn p-0" type="link" href="/promotion">
-                  Promotion
-                </Button>
-              </li>
-              <li className="list-group-item bg-transparent">
-                <Button className="btn p-0" type="link" href="/career">
-                  Career
-                </Button>
-              </li>
+              <NavItemLink
+                className="list-group-item bg-transparent"
+                linkClass="btn p-0"
+                type="link"
+                href="/about"
+              >
+                About
+              </NavItemLink>
+              <NavItemLink
+                className="list-group-item bg-transparent"
+                linkClass="btn p-0"
+                type="link"
+                href="/products"
+              >
+                Products
+              </NavItemLink>
+              <NavItemLink
+                className="list-group-item bg-transparent"
+                linkClass="btn p-0"
+                type="link"
+                href="/promotion"
+              >
+                Promotion
+              </NavItemLink>
+              <NavItemLink
+                className="list-group-item bg-transparent"
+                linkClass="btn p-0"
+                type="link"
+                href="/career"
+              >
+                Career
+              </NavItemLink>
             </ul>
           </div>
           <div className="col-auto col-md-2 list-wrapper">
             <h5>Useful Links</h5>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item bg-transparent">
-                <Button className="btn p-0" type="link" href="/catalog">
-                  Catalog
-                </Button>
-              </li>
-              <li className="list-group-item bg-transparent">
-                <Button className="btn p-0" type="link" href="/plan">
-                  Planning Program
-                </Button>
-              </li>
-              <li className="list-group-item bg-transparent">
-                <Button
-                  className="btn p-0"
-                  type="link"
-                  href="/customer-service"
-                >
-                  Customer Service
-                </Button>
-              </li>
-              <li className="list-group-item bg-transparent">
-                <Button className="btn p-0 m-0" type="link" href="/policy">
-                  Privacy Policy
-                </Button>
-              </li>
+              <NavItemLink
+                className="list-group-item bg-transparent"
+                linkClass="btn p-0"
+                type="link"
+                href="/catelog"
+              >
+                Catalog
+              </NavItemLink>
+              <NavItemLink
+                className="list-group-item bg-transparent"
+                linkClass="btn p-0"
+                type="link"
+                href="/plan"
+              >
+                Planning Program
+              </NavItemLink>
+              <NavItemLink
+                className="list-group-item bg-transparent"
+                linkClass="btn p-0"
+                type="link"
+                href="/service"
+              >
+                Customer Service
+              </NavItemLink>
+              <NavItemLink
+                className="list-group-item bg-transparent"
+                linkClass="btn p-0"
+                type="link"
+                href="/terms"
+              >
+                Privacy Policy
+              </NavItemLink>
             </ul>
           </div>
           <div className="col-auto col-md-auto list-wrapper">
             <h5>Contact</h5>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item bg-transparent">
-                <Button
-                  className="btn p-0 m-0"
-                  type="link"
-                  href="tel:+622128992988"
-                >
-                  <IconPhone className="me-3" />
-                  021 - 2899 - 2988
-                </Button>
-              </li>
-              <li className="list-group-item bg-transparent">
-                <Button
-                  className="btn p-0 m-0"
-                  isExternal
-                  type="link"
-                  target="_blank"
-                  href="mailto:support@lakecoast.com"
-                >
-                  <IconMessage className="me-3" />
-                  lakecoast@gmail.com
-                </Button>
-              </li>
+              <NavItemLink
+                className="list-group-item bg-transparent"
+                linkClass="btn p-0 m-0"
+                isExternal
+                type="link"
+                target="_blank"
+                href="tel:+622128992988"
+              >
+                <IconPhone className="me-3" />
+                021 - 2899 - 2988
+              </NavItemLink>
+              <NavItemLink
+                className="list-group-item bg-transparent"
+                linkClass="btn p-0 m-0"
+                isExternal
+                type="link"
+                target="_blank"
+                href="mailto:support@lakecoast.com"
+              >
+                <IconMessage className="me-3" />
+                lakecoast@gmail.com
+              </NavItemLink>
             </ul>
             <div className="sitelink-icon-image d-flex align-items-center">
               <Button

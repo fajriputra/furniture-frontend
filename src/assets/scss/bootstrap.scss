@@ -61,17 +61,17 @@ html {
 }
 
 section {
-  margin-bottom: 50px;
+  margin-bottom: 3.125rem;
 
   @media (min-width: 992px) {
-    margin-bottom: 70px;
+    margin-bottom: 4.375rem;
   }
 }
 
 label {
   font-weight: 600;
   font-family: "DM Sans", sans-serif;
-  letter-spacing: 1px;
+  letter-spacing: 0.0625rem;
 }
 
 span {
@@ -81,24 +81,24 @@ span {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 2.25rem;
   font-family: "DM Sans", sans-serif;
   color: #000000;
 
   @media (min-width: 992px) {
-    font-size: 42px;
+    font-size: 2.625rem;
   }
 }
 
 p {
   &.paragraph {
-    font-size: 22px;
-    margin: 22px auto 30px;
+    font-size: 1.25rem;
+    margin: 1.375rem auto 1.875rem;
     color: #000000;
 
     @media (min-width: 992px) {
-      font-size: 24px;
-      margin-bottom: 40px;
+      font-size: 1.5rem;
+      margin-bottom: 2.5rem;
     }
   }
 
@@ -108,10 +108,10 @@ p {
   }
 
   &.error-helpers {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: red;
-    margin-top: -15px;
-    margin-bottom: 8px;
+    margin-top: -0.9375rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -140,13 +140,13 @@ p {
 }
 
 .centered {
-  padding: 100px 20px;
+  padding: 6.25rem 1.25rem;
 }
 
 .btn {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-family: "Assistant", sans-serif;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   color: #000000;
 
   &:focus {
@@ -155,7 +155,7 @@ p {
 
   &-login {
     background-color: #017865;
-    padding: 10px 25px;
+    padding: 0.625rem 1.5625rem;
     color: #ffffff;
     font-weight: 600;
 
@@ -164,7 +164,7 @@ p {
     }
 
     &.btn-loading {
-      padding: 15px 0;
+      padding: 0.9375rem 0;
     }
   }
 }
@@ -173,7 +173,7 @@ p {
   border-radius: 0.9375rem;
 
   @media (min-width: 992px) {
-    margin-right: 30px;
+    margin-right: 1.875rem;
   }
 
   &.card-other {
@@ -198,8 +198,8 @@ p {
     .btn {
       display: flex;
       justify-content: space-between;
-      margin-left: -10px;
-      margin-right: -10px;
+      margin-left: -0.625rem;
+      margin-right: -0.625rem;
 
       h5 {
         font-weight: 600;

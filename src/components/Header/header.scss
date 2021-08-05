@@ -1,10 +1,10 @@
 header {
   width: 100%;
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 3.125rem;
 
   @media (min-width: 992px) {
-    margin-bottom: 70px;
+    margin-bottom: 4.375rem;
   }
 
   .navbar {
@@ -26,8 +26,8 @@ header {
       &.active {
         a.nav-link {
           font-weight: 600;
-          border-bottom: 2px solid #017865;
-          border-radius: 1.5px;
+          border-bottom: 0.125rem solid #017865;
+          border-radius: 0.09375rem;
           color: #000000;
         }
       }
@@ -38,7 +38,7 @@ header {
           color: #000000;
           padding-left: 1.25rem;
           padding-right: 1.25rem;
-          letter-spacing: 2px;
+          letter-spacing: 0.125rem;
 
           &:hover {
             color: #ffb855;
@@ -47,25 +47,6 @@ header {
           }
         }
       }
-    }
-
-    div.line {
-      display: none;
-
-      @media (min-width: 992px) {
-        display: block;
-      }
-    }
-
-    h5.auth-user {
-      font-size: 1rem;
-      margin: 0 0.5rem 0 1rem;
-    }
-
-    .auth-image {
-      width: 50px;
-      height: 50px;
-      background-color: #ffb855;
     }
   }
 }

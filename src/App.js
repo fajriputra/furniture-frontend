@@ -5,9 +5,10 @@ import "assets/scss/bootstrap.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Homepage from "pages/Homepage";
-import Product from "pages/Product";
-import Login from "pages/Login";
 import Register from "pages/Register";
+import Login from "pages/Login";
+import Product from "pages/Product";
+import Cart from "pages/Cart";
 
 import { listen } from "helpers/listener";
 
@@ -23,9 +24,10 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/" component={Homepage} />
-            <Route exact path="/products" component={Product} />
-            <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/products" component={Product} />
+            <Route exact path="/cart" component={Cart} />
           </Switch>
         </Router>
       </div>

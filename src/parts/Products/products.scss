@@ -1,12 +1,28 @@
-.card {
-  margin-bottom: 30px;
-  @media (min-width: 992px) {
-    margin-bottom: 50px;
+.products {
+  .mobile {
+    justify-content: center;
+
+    @media (min-width: 992px) {
+      justify-content: space-evenly;
+    }
   }
 
-  .product-title {
-    display: flex;
-    justify-content: space-between;
+  .cards {
+    margin-bottom: 1.875rem;
+
+    @media (min-width: 992px) {
+      margin-bottom: 3.125rem;
+      margin-right: 0;
+    }
+
+    .img-wrapper {
+      width: 100%;
+
+      @media (min-width: 992px) {
+        width: 300px;
+        height: 370px;
+      }
+    }
 
     h5 {
       font-weight: 600;
@@ -22,6 +38,10 @@
 
     svg {
       width: 25px;
+    }
+
+    .btn {
+      width: 100%;
     }
   }
 }
