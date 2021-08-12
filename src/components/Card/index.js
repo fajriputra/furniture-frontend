@@ -44,7 +44,7 @@ Card.propTypes = {
   className: propTypes.string,
   onClick: propTypes.func,
   imgWrapperClass: propTypes.string,
-  imgUrl: propTypes.string,
+  imgUrl: propTypes.any,
   imgClass: propTypes.string,
   metaClass: propTypes.string,
   btnClass: propTypes.string,

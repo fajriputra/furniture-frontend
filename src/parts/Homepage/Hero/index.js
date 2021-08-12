@@ -7,6 +7,7 @@ import ImageHero from "assets/images/hero-image.jpg";
 import Button from "components/Button";
 
 import "./hero.scss";
+import Card from "components/Card";
 
 export default function Hero(props) {
   const showProduct = () => {
@@ -39,9 +40,11 @@ export default function Hero(props) {
             </Button>
           </div>
           <div className="col-sm-12 col-md-7">
-            <div className="wrapper-image-hero">
-              <img src={ImageHero} alt="Hero" className="img-cover" />
-            </div>
+            <Card
+              className="wrapper-image-hero"
+              imgUrl={ImageHero}
+              metaClass="d-none"
+            />
             <div className="icon-elipse1">
               <IconSurface className="icon-surface" />
             </div>

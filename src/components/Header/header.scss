@@ -11,6 +11,10 @@ header {
     &-toggler {
       border: none;
       outline: none;
+
+      &:focus {
+        box-shadow: none;
+      }
     }
 
     .logo-brand {
@@ -19,6 +23,16 @@ header {
 
       @media (min-width: 992px) {
         width: 230px;
+      }
+    }
+
+    .collapse {
+      transition: all 1000ms;
+    }
+
+    &-collapse {
+      @media (max-width: 768px) {
+        margin-top: 15px;
       }
     }
 
@@ -36,9 +50,12 @@ header {
           font-family: "Assistant", sans-serif;
           font-size: 1.125rem;
           color: #000000;
-          padding-left: 1.25rem;
-          padding-right: 1.25rem;
           letter-spacing: 0.125rem;
+
+          @media (min-width: 992px) {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+          }
 
           &:hover {
             color: #ffb855;

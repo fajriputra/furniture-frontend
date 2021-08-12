@@ -7,6 +7,8 @@
     position: relative;
     left: -0.75rem;
     margin-top: 15%;
+    margin-right: 0;
+    border-radius: 0 0.625rem 0.625rem 0;
 
     @media (min-width: 992px) {
       position: absolute;
@@ -15,14 +17,9 @@
     }
 
     .image-about {
-      border-radius: 0 0.625rem 0.625rem 0;
-
+      border-radius: inherit;
       @media (min-width: 992px) {
         width: 550px;
-      }
-
-      img {
-        border-radius: inherit;
       }
     }
   }

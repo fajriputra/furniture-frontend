@@ -5,6 +5,7 @@ import ImageAbout from "assets/images/about-image.jpg";
 import Button from "components/Button";
 
 import "./about.scss";
+import Card from "components/Card";
 
 export default function About() {
   return (
@@ -12,15 +13,12 @@ export default function About() {
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-6">
-            <div className="wrapper-image-about">
-              <figure className="img wrapper image-about">
-                <img
-                  src={ImageAbout}
-                  alt="About Section"
-                  className="img-cover"
-                />
-              </figure>
-            </div>
+            <Card
+              className="wrapper-image-about"
+              imgWrapperClass="image-about"
+              imgUrl={ImageAbout}
+              metaClass="d-none"
+            />
           </div>
           <div className="col-sm-12 col-md-6">
             <div className="about-info">

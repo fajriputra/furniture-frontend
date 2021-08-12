@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useSelector } from "react-redux";
 
@@ -12,23 +12,33 @@ import NavItemLink from "components/NavItemLink";
 import UserLink from "components/UserProfile";
 
 export default function Header(props) {
+  const [isCollapse, setCollapse] = useState(true);
   const auth = useSelector((state) => state.auth);
 
   const getNavLinksClass = (path) => {
     return props.location.pathname === path ? " active" : "";
   };
 
+  const handleCollapse = () => setCollapse(!isCollapse);
+
   return (
     <header className="mx-auto pt-4">
-      <div className="container">
+      <div className="container-fluid px-5">
         <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
           <Button className="logo-brand" type="link" href="/">
             <img src={Logo} alt="Lake Coast" className="img-cover" />
           </Button>
-          <Button className="navbar-toggler" type="button">
+          <Button
+            className="navbar-toggler"
+            type="button"
+            onClick={handleCollapse}
+          >
             <span className="navbar-toggler-icon"></span>
           </Button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div
+            className={`${isCollapse ? "collapse" : ""} navbar-collapse`}
+            id="navbarNav"
+          >
             <ul className="navbar-nav ms-auto fw-light">
               {dataLink?.map((item) => {
                 return (
@@ -48,11 +58,7 @@ export default function Header(props) {
               <UserLink />
             ) : (
               <>
-                <Button
-                  type="link"
-                  className="btn btn-login mx-3"
-                  href="/login"
-                >
+                <Button type="link" className="btn btn-login" href="/login">
                   Sign in
                 </Button>
               </>

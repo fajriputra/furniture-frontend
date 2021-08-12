@@ -83,12 +83,16 @@ export default function Products() {
                     btnClass="mt-1 px-0 mx-0"
                     imgUrl={`${apiHost}/images/${product.image_url}`}
                     imgClass="img-contain"
+                    metaClass="pe-none"
                   >
                     <div className="text">
                       <h5>{product.name}</h5>
                       <p>IDR {product.price}</p>
                     </div>
-                    <BtnCart />
+                    <BtnCart
+                      onClick={(_) => alert("fungsi ini belum dibuat ya")}
+                      className="pe-auto"
+                    />
                   </Card>
                 </div>
               );

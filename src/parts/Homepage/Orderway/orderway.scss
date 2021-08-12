@@ -1,0 +1,25 @@
+.orderway {
+  color: #000000;
+  &-info {
+    &-heading {
+      font-weight: 500;
+    }
+  }
+
+  .column {
+    @media (min-width: 992px) {
+      width: 20%;
+    }
+
+    .icon {
+      display: none;
+
+      @media (min-width: 992px) {
+        position: relative;
+        top: -74%;
+        right: -94%;
+        display: block;
+      }
+    }
+  }
+}

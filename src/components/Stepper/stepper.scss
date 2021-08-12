@@ -1,0 +1,31 @@
+.stepper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background-color: #017865;
+  width: 120px;
+  height: 120px;
+  border-radius: 1.875rem;
+
+  figure {
+    margin-bottom: 0;
+  }
+
+  &-content {
+    h4 {
+      font-family: "DM Sans", sans-serif;
+      margin: 0.9375rem auto 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 0.9375rem;
+
+      @media (min-width: 992px) {
+        font-size: 1.125rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

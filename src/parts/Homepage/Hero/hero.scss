@@ -40,11 +40,8 @@
     right: -0.75rem;
     height: auto;
     margin-top: 3.125rem;
-    border-radius: 0.625rem 0 0 0.625rem;
-
-    img {
-      border-radius: inherit;
-    }
+    margin-right: 0;
+    border-radius: 0.9375rem 0 0 0.9375rem;
 
     @media (min-width: 992px) {
       position: absolute;
@@ -52,6 +49,10 @@
       width: 670px;
       height: 540px;
       margin-top: 0;
+    }
+
+    .img-wrapper {
+      border-radius: inherit;
     }
   }
 
