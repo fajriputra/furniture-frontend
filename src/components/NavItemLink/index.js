@@ -1,29 +1,27 @@
 import React from "react";
 
+import propTypes from "prop-types";
 import Button from "components/Button";
 
 export default function NavItemLink({
   className,
-  type,
   href,
-  isExternal,
-  target,
   children,
   linkClass,
+  onClick,
 }) {
   return (
-    <li className={className}>
-      <Button
-        type={type}
-        className={linkClass}
-        href={href}
-        isExternal={isExternal}
-        target={target}
-      >
+    <li className={className} onClick={onClick}>
+      <Button type="link" className={linkClass} href={href}>
         {children}
       </Button>
     </li>
   );
 }
 
-// page
+NavItemLink.propTypes = {
+  className: propTypes.string,
+  href: propTypes.string,
+  linkClass: propTypes.string,
+  onClick: propTypes.func,
+};

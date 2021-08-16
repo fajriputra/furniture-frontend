@@ -1,64 +1,93 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
-import { Pagination } from "react-bootstrap";
 import { nextPage, prevPage } from "store/Products/actions";
-import SyncLoader from "react-spinners/SyncLoader";
+import Button from "components/Button";
 
 import "./pagination.scss";
+import { usePagination, DOTS } from "hooks/usePagination";
 
-export default function Paginations({
-  total = 0,
-  itemPerPage = 0,
-  currentPage = 1,
+export default function Pagination({
+  totalItems,
+  siblingCount = 1,
+  currentPage,
   onPageChange,
+  perPage,
 }) {
-  const [totalPages, setTotalPages] = useState(0);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (total > 0 && itemPerPage > 0) {
-      setTotalPages(Math.ceil(total / itemPerPage));
-    }
-  }, [total, itemPerPage]);
+  const paginationRange = usePagination({
+    currentPage,
+    totalItems,
+    siblingCount,
+    perPage,
+  });
 
-  const paginationItems = useMemo(() => {
-    const pages = [];
+  // jika page kurang dari 2page, skip render komponen
+  if (currentPage === 0 || paginationRange < 2) {
+    return null;
+  }
 
-    for (let i = 1; i <= totalPages; i++) {
-      pages.push(
-        <Pagination.Item
-          key={i}
-          active={i === currentPage}
-          onClick={() => onPageChange(i)}
-        >
-          {i}
-        </Pagination.Item>
-      );
-    }
-
-    return pages;
-  }, [totalPages, currentPage, onPageChange]);
+  let lastPage = paginationRange[paginationRange.length - 1];
 
   return (
     <section className="container">
       <div className="row justify-content-center">
-        {totalPages === 0 ? (
-          <div className="text-center">
-            <SyncLoader color="#d8d8d8" />;
-          </div>
-        ) : (
-          <Pagination className="justify-content-center">
-            <Pagination.Prev
-              onChange={() => onPageChange(dispatch(prevPage()))}
-              disabled={currentPage === 1}
-            />
-            {paginationItems}
-            <Pagination.Next
-              onChange={() => onPageChange(dispatch(nextPage()))}
-              disabled={currentPage === totalPages}
-            />
-          </Pagination>
-        )}
+        <nav className="table-responsive">
+          <ul className="pagination">
+            <li
+              className={[
+                "page-item",
+                currentPage === 1 ? "disabled" : "",
+              ].join(" ")}
+            >
+              <Button
+                className="page-link"
+                onClick={() => onPageChange(dispatch(prevPage()))}
+              >
+                &lArr;
+              </Button>
+            </li>
+            {paginationRange.map((item, index) => {
+              if (item === DOTS) {
+                return (
+                  <li className="page-item">
+                    <Button className="page-link pe-none">&hellip;</Button>
+                  </li>
+                );
+              }
+
+              return (
+                <li
+                  className={[
+                    "page-item",
+                    item === currentPage ? "active" : "",
+                  ].join(" ")}
+                  key={index}
+                >
+                  <Button
+                    className="page-link"
+                    onClick={() => onPageChange(item)}
+                  >
+                    {item}
+                  </Button>
+                </li>
+              );
+            })}
+            <li
+              className={[
+                "page-item",
+                currentPage === lastPage ? "disabled" : "",
+              ].join(" ")}
+            >
+              <Button
+                className="page-link"
+                onClick={() => onPageChange(dispatch(nextPage()))}
+              >
+                &rArr;
+              </Button>
+            </li>
+          </ul>
+        </nav>
       </div>
     </section>
   );

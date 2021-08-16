@@ -7,60 +7,70 @@ header {
     margin-bottom: 4.375rem;
   }
 
-  .navbar {
-    &-toggler {
-      border: none;
-      outline: none;
+  .header {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
 
-      &:focus {
-        box-shadow: none;
-      }
+    @media (min-width: 768px) {
+      padding-left: 3.125rem;
+      padding-right: 3.125rem;
     }
 
-    .logo-brand {
-      width: 200px;
-      height: auto;
+    .navbar {
+      &-toggler {
+        border: none;
+        outline: none;
 
-      @media (min-width: 992px) {
-        width: 230px;
-      }
-    }
-
-    .collapse {
-      transition: all 1000ms;
-    }
-
-    &-collapse {
-      @media (max-width: 768px) {
-        margin-top: 15px;
-      }
-    }
-
-    li.nav-item {
-      &.active {
-        a.nav-link {
-          font-weight: 600;
-          border-bottom: 0.125rem solid #017865;
-          border-radius: 0.09375rem;
-          color: #000000;
+        &:focus {
+          box-shadow: none;
         }
       }
-      a {
-        &.nav-link {
-          font-family: "Assistant", sans-serif;
-          font-size: 1.125rem;
-          color: #000000;
-          letter-spacing: 0.125rem;
 
-          @media (min-width: 992px) {
-            padding-left: 1.25rem;
-            padding-right: 1.25rem;
+      .logo-brand {
+        width: 200px;
+        height: auto;
+
+        @media (min-width: 992px) {
+          width: 230px;
+        }
+      }
+
+      .collapse {
+        transition: all 1000ms;
+      }
+
+      &-collapse {
+        @media (max-width: 768px) {
+          margin-top: 0.9375rem;
+        }
+      }
+
+      li.nav-item {
+        &.active {
+          a.nav-link {
+            font-weight: 600;
+            border-bottom: 0.125rem solid #017865;
+            border-radius: 0.09375rem;
+            color: #000000;
           }
+        }
+        a {
+          &.nav-link {
+            font-family: "Assistant", sans-serif;
+            font-size: 1.125rem;
+            color: #000000;
+            letter-spacing: 0.125rem;
 
-          &:hover {
-            color: #ffb855;
+            @media (min-width: 992px) {
+              padding-left: 1.25rem;
+              padding-right: 1.25rem;
+            }
 
-            transition: all 200ms;
+            &:hover {
+              color: #ffb855;
+
+              transition: all 200ms;
+            }
           }
         }
       }

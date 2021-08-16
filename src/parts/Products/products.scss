@@ -1,7 +1,7 @@
 .products {
   .mobile {
     justify-content: center;
-
+    // overflow: hidden;
     @media (min-width: 992px) {
       justify-content: space-evenly;
     }
@@ -17,6 +17,7 @@
 
     .img-wrapper {
       width: 100%;
+      height: 387px;
 
       @media (min-width: 992px) {
         width: 300px;

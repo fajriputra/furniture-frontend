@@ -24,10 +24,10 @@
 
   &:focus {
     z-index: 3;
-    color: $pagination-focus-color;
-    background-color: $pagination-focus-bg;
-    outline: $pagination-focus-outline;
-    box-shadow: $pagination-focus-box-shadow;
+    color: $pagination-active-color;
+    background-color: none;
+    outline: none;
+    box-shadow: none;
   }
 }
 
@@ -41,6 +41,7 @@
     color: $pagination-active-color;
     @include gradient-bg($pagination-active-bg);
     border-color: $pagination-active-border-color;
+    pointer-events: none;
   }
 
   &.disabled .page-link {

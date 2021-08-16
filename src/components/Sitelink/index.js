@@ -66,7 +66,7 @@ export default function Sitelink() {
                 className="list-group-item bg-transparent"
                 linkClass="btn p-0"
                 type="link"
-                href="/catelog"
+                href="/catalog"
               >
                 Catalog
               </NavItemLink>
@@ -99,28 +99,30 @@ export default function Sitelink() {
           <div className="col-auto col-md-auto list-wrapper">
             <h5>Contact</h5>
             <ul className="list-group list-group-flush">
-              <NavItemLink
-                className="list-group-item bg-transparent"
-                linkClass="btn p-0 m-0"
-                isExternal
-                type="link"
-                target="_blank"
-                href="tel:+622128992988"
-              >
-                <IconPhone className="me-3" />
-                021 - 2899 - 2988
-              </NavItemLink>
-              <NavItemLink
-                className="list-group-item bg-transparent"
-                linkClass="btn p-0 m-0"
-                isExternal
-                type="link"
-                target="_blank"
-                href="mailto:support@lakecoast.com"
-              >
-                <IconMessage className="me-3" />
-                lakecoast@gmail.com
-              </NavItemLink>
+              <li className="list-group-item bg-transparent">
+                <Button
+                  className="btn p-0 m-0"
+                  type="link"
+                  isExternal
+                  target="_blank"
+                  href="tel:+622128992988"
+                >
+                  <IconPhone className="me-3" />
+                  021 - 2899 - 2988
+                </Button>
+              </li>
+              <li className="list-group-item bg-transparent">
+                <Button
+                  className="btn p-0 m-0"
+                  type="link"
+                  isExternal
+                  target="_blank"
+                  href="mailto:support@lakecoast.com"
+                >
+                  <IconMessage className="me-3" />
+                  lakecoast@gmail.com
+                </Button>
+              </li>
             </ul>
             <div className="sitelink-icon-image d-flex align-items-center">
               <Button

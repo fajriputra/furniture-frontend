@@ -23,7 +23,7 @@ export default function Header(props) {
 
   return (
     <header className="mx-auto pt-4">
-      <div className="container-fluid px-5">
+      <div className="container-fluid header">
         <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
           <Button className="logo-brand" type="link" href="/">
             <img src={Logo} alt="Lake Coast" className="img-cover" />

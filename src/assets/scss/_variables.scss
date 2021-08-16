@@ -1069,8 +1069,8 @@ $dropdown-dark-header-color: $gray-500 !default;
 // Pagination
 
 // scss-docs-start pagination-variables
-$pagination-padding-y: 0.5rem !default;
-$pagination-padding-x: 1rem !default;
+$pagination-padding-y: 0.475rem !default;
+$pagination-padding-x: 0.85rem !default;
 $pagination-padding-y-sm: 0.3rem !default;
 $pagination-padding-x-sm: 0.3rem !default;
 $pagination-padding-y-lg: 0.75rem !default;
@@ -1098,7 +1098,7 @@ $pagination-active-border-color: none !default;
 
 $pagination-disabled-color: $gray-600 !default;
 $pagination-disabled-bg: $white !default;
-$pagination-disabled-border-color: $gray-300 !default;
+$pagination-disabled-border-color: $gray-400 !default;
 
 $pagination-transition: color 0.15s ease-in-out,
   background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,

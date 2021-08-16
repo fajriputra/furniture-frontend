@@ -16,14 +16,15 @@ import { tags } from "helpers/tags";
 import Categories from "components/Categories";
 import Search from "components/Search";
 import Tags from "components/Tags";
-import Paginations from "components/Pagination";
+import Card from "components/Card";
+import Pagination from "components/Pagination";
 
 import "./products.scss";
-import Card from "components/Card";
 
 export default function Products() {
   const dispatch = useDispatch();
   const [active, setIsActive] = useState(null);
+
   const products = useSelector((state) => state.products);
 
   useEffect(() => {
@@ -82,7 +83,6 @@ export default function Products() {
                     className="cards"
                     btnClass="mt-1 px-0 mx-0"
                     imgUrl={`${apiHost}/images/${product.image_url}`}
-                    imgClass="img-contain"
                     metaClass="pe-none"
                   >
                     <div className="text">
@@ -99,9 +99,10 @@ export default function Products() {
             })
           )}
         </div>
-        <Paginations
-          total={products.totalItems}
-          itemPerPage={products.perPage}
+
+        <Pagination
+          totalItems={products.totalItems}
+          perPage={products.perPage}
           currentPage={products.currentPage}
           onPageChange={(page) => dispatch(setPage(page))}
         />

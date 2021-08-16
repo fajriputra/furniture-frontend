@@ -1,10 +1,10 @@
 .input-text {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 
   .input-group {
     background-color: #ffffff;
-    border-radius: 4px;
+    border-radius: 0.25rem;
 
     input[type="text"],
     input[type="email"],
@@ -14,11 +14,11 @@
     }
 
     .form-control {
-      border-radius: 12px;
+      border-radius: 0.75rem;
       border-color: #ced4da;
       box-shadow: none;
       background-color: #e9ecef;
-      padding: 0.575rem 20px;
+      padding: 0.575rem 1.25rem;
       height: 60px;
 
       &::placeholder {
