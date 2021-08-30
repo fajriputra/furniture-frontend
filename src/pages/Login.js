@@ -41,6 +41,8 @@ export default function Login(props) {
     // kirim data ke Web API menggunakan helper `login`
     const { data } = await login(email, password);
 
+    console.log(data);
+
     // cek apakah ada error
     if (data.error) {
       // tangani error

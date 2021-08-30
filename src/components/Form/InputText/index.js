@@ -15,6 +15,7 @@ const InputText = React.forwardRef(
       inputClassName,
       onChange,
       onKeyUp,
+      onKeyPress,
     },
     ref
   ) => (
@@ -34,6 +35,7 @@ const InputText = React.forwardRef(
             placeholder={placeholder}
             onChange={onChange}
             onKeyUp={onKeyUp}
+            onKeyPress={onKeyPress}
             ref={ref}
           />
         </div>

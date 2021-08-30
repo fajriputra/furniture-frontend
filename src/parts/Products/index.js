@@ -1,39 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import SyncLoader from "react-spinners/SyncLoader";
 
 import { ReactComponent as BtnCart } from "assets/images/icons/icon-cart-header.svg";
 import { apiHost } from "config.js";
-import {
-  fetchProducts,
-  setKeyword,
-  setCategory,
-  toggleTag,
-  setPage,
-} from "store/Products/actions";
+import { fetchProducts, setKeyword, setPage } from "store/Products/actions";
 
-import { tags } from "helpers/tags";
+import { useCategories } from "hooks/useCategories";
 import Categories from "components/Categories";
 import Search from "components/Search";
-import Tags from "components/Tags";
+
 import Card from "components/Card";
 import Pagination from "components/Pagination";
 
 import "./products.scss";
+import { addItem } from "store/Cart/actions";
+import { formatRupiah } from "helpers/formatRupiah";
 
 export default function Products() {
   const dispatch = useDispatch();
-  const [active, setIsActive] = useState(null);
-
   const products = useSelector((state) => state.products);
+
+  const { ctg } = useCategories();
+
+  const allCategories = ["All", ...new Set(ctg?.map((item) => item.name))];
+
+  const filter = (button) => {
+    dispatch(fetchProducts(button));
+  };
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, [
     dispatch,
+    products.category,
     products.currentPage,
     products.keyword,
-    products.category,
     products.tags,
   ]);
 
@@ -41,9 +43,9 @@ export default function Products() {
     <section className="products">
       <div className="container">
         <Categories
-          setActive={setIsActive}
-          isActive={active === products.category}
-          onChange={(category) => dispatch(setCategory(category))}
+          isActive={filter}
+          button={allCategories}
+          onTabChange={filter}
         />
 
         <Search
@@ -51,21 +53,8 @@ export default function Products() {
           onChange={(e) => dispatch(setKeyword(e.target.value))}
         />
 
-        {tags[products.category]?.map((item, index) => {
-          return (
-            <div key={index}>
-              <Tags
-                onClick={() => dispatch(toggleTag(item))}
-                isActive={products.tags.includes(item)}
-              >
-                {item}
-              </Tags>
-            </div>
-          );
-        })}
-
         <div className="row mobile">
-          {products.status === "process" ? (
+          {products?.status === "process" ? (
             <div className="text-center mb-5">
               <SyncLoader color="#d8d8d8" />
             </div>
@@ -87,10 +76,10 @@ export default function Products() {
                   >
                     <div className="text">
                       <h5>{product.name}</h5>
-                      <p>IDR {product.price}</p>
+                      <p>{formatRupiah(product.price)}</p>
                     </div>
                     <BtnCart
-                      onClick={(_) => alert("fungsi ini belum dibuat ya")}
+                      onClick={() => dispatch(addItem(product))}
                       className="pe-auto"
                     />
                   </Card>

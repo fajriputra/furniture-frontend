@@ -11,11 +11,13 @@ import Product from "pages/Product";
 import Cart from "pages/Cart";
 
 import { listen } from "helpers/listener";
+import { getCart } from "helpers/api/cart";
 
 function App() {
   // memanggil fungsi listen sekali saja saat komponent pertama kali selesai di render
   useEffect(() => {
     listen();
+    getCart();
   }, []);
 
   return (

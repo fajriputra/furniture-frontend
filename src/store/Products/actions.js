@@ -10,21 +10,22 @@ import {
   TOGGLE_TAG,
   PREV_PAGE,
   NEXT_PAGE,
-  TOGGLE_CATEGORY,
 } from "./constants";
 import { getProducts } from "helpers/api/product";
 
+// beri jeda sebelum fetching data
 let debouncedFetchProducts = debounce(getProducts, 1000);
 
-export const fetchProducts = () => {
+export const fetchProducts = (category = "All") => {
   return async (dispatch, getState) => {
+    // menugaskan ke Redux store dengan pertanda fetching data dimulai
     dispatch(startFetchingProducts());
 
+    // getState() untuk mendapatkan nilai state terbaru dari redux store
     let perPage = getState().products.perPage || 6;
     let currentPage = getState().products.currentPage || 1;
     let tags = getState().products.tags || [];
     let keyword = getState().products.keyword || "";
-    let category = getState().products.category || [];
 
     const params = {
       limit: perPage,
@@ -38,6 +39,12 @@ export const fetchProducts = () => {
       let {
         data: { data, count },
       } = await debouncedFetchProducts(params);
+
+      if (category && category !== "All") {
+        data = data?.filter((product) => {
+          return product.category.name.toLowerCase() === category.toLowerCase();
+        });
+      }
 
       dispatch(successFetchingProducts({ data, count }));
     } catch (err) {
@@ -84,6 +91,7 @@ export const prevPage = () => {
   };
 };
 
+// menentukan keyword
 export const setKeyword = (keyword) => {
   return {
     type: SET_KEYWORD,
@@ -91,24 +99,15 @@ export const setKeyword = (keyword) => {
   };
 };
 
+// set kategori produk aktif
 export const setCategory = (category) => {
   return {
     type: SET_CATEGORY,
-    category,
+    category: category,
   };
 };
 
-export const clearCategory = () => {
-  return setCategory([]);
-};
-
-export const toggleCategory = (ctg) => {
-  return {
-    type: TOGGLE_CATEGORY,
-    ctg,
-  };
-};
-
+// set tags produk aktif
 export const setTags = (tags) => {
   return {
     type: SET_TAGS,
@@ -120,6 +119,7 @@ export const clearTags = () => {
   return setTags([]);
 };
 
+// set toggle tag aktif
 export const toggleTag = (tag) => {
   return {
     type: TOGGLE_TAG,

@@ -7,5 +7,4 @@ export const SET_CATEGORY = "SET_CATEGORY";
 export const SET_TAGS = "SET_TAGS";
 export const NEXT_PAGE = "NEXT_PAGE";
 export const PREV_PAGE = "PREV_PAGE";
-export const TOGGLE_CATEGORY = "TOGGLE_CATEGORY";
 export const TOGGLE_TAG = "TOGGLE_TAG";

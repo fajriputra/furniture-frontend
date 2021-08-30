@@ -24,7 +24,6 @@ export default function Breadcrumbs({ list, className }) {
           );
         })}
       </ol>
-      ;
     </nav>
   );
 }

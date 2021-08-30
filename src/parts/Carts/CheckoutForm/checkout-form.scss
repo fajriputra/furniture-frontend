@@ -1,0 +1,34 @@
+.checkout-form {
+  background-color: #eeeeee;
+  height: 270px;
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  overflow: hidden;
+
+  .wrap-content {
+    .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      &:last-of-type {
+        margin-bottom: 2.5rem;
+      }
+
+      h5 {
+        margin-bottom: 0;
+      }
+
+      strong {
+        font-size: 0.875rem;
+      }
+    }
+  }
+  .btn-checkout {
+    background-color: #017865;
+    width: 100%;
+    color: #ffffff;
+    padding: 8px 0;
+  }
+}

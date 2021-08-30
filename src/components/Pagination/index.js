@@ -1,18 +1,22 @@
 import React from "react";
+import propTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { nextPage, prevPage } from "store/Products/actions";
+import { usePagination, DOTS } from "hooks/usePagination";
+
 import Button from "components/Button";
 
 import "./pagination.scss";
-import { usePagination, DOTS } from "hooks/usePagination";
 
-export default function Pagination({
-  totalItems,
-  siblingCount = 1,
-  currentPage,
-  onPageChange,
-  perPage,
-}) {
+export default function Pagination(props) {
+  const {
+    totalItems,
+    siblingCount = 1,
+    currentPage,
+    onPageChange,
+    perPage,
+  } = props;
+
   const dispatch = useDispatch();
 
   const paginationRange = usePagination({
@@ -92,3 +96,11 @@ export default function Pagination({
     </section>
   );
 }
+
+Pagination.propTypes = {
+  totalItems: propTypes.number,
+  siblingCount: propTypes.number,
+  currentPage: propTypes.number,
+  onPageChange: propTypes.func,
+  perPage: propTypes.number,
+};

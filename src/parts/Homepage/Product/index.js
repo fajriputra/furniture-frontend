@@ -7,6 +7,7 @@ import Button from "components/Button";
 
 import "./product.scss";
 import Card from "components/Card";
+import { formatRupiah } from "helpers/formatRupiah";
 
 export default function Product(props) {
   return (
@@ -36,7 +37,7 @@ export default function Product(props) {
                     href="/products"
                   >
                     <h5>{item.name}</h5>
-                    <p>IDR {item.price}</p>
+                    <p>{formatRupiah(item.price)}</p>
                   </Card>
                 </div>
               );
