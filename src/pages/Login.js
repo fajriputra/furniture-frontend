@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-
-import { showSuccess } from "helpers/notif";
 import { login } from "helpers/api/auth";
 import { userLogin } from "store/Auth/actions";
+import { toast } from "react-toastify";
 import InputText from "components/Form/InputText";
 import Button from "components/Button";
 import useTogglePassword from "hooks/useTogglePassword";
@@ -20,10 +19,6 @@ const statuslist = {
 export default function Login(props) {
   const [status, setStatus] = useState(statuslist.idle);
   const [typePassword, Toggle] = useTogglePassword();
-  const [alert, setAlert] = useState({
-    error: "",
-    success: "",
-  });
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -41,8 +36,6 @@ export default function Login(props) {
     // kirim data ke Web API menggunakan helper `login`
     const { data } = await login(email, password);
 
-    console.log(data);
-
     // cek apakah ada error
     if (data.error) {
       // tangani error
@@ -57,11 +50,11 @@ export default function Login(props) {
       // kirim data ke redux store dengan data yang didapat
       dispatch(userLogin(user, token));
 
-      setAlert({ error: "", success: data.message });
+      toast.success(data.message);
 
       setTimeout(() => {
         history.push("/");
-      }, 4000);
+      }, 2000);
     }
     setStatus(statuslist.success);
   };
@@ -90,10 +83,6 @@ export default function Login(props) {
             </h1>
 
             <form className="form-class" onSubmit={handleSubmit(onSubmit)}>
-              <div className="alert-wrapper" style={{ width: "100%" }}>
-                {alert.success && showSuccess(alert.success)}
-              </div>
-
               <div className="form-group position-relative">
                 <label htmlFor="email" className="pb-2">
                   Email Address

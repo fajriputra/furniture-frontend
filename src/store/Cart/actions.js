@@ -1,38 +1,54 @@
 import {
   ADD_ITEM,
-  REMOVE_ITEM,
+  INCREMENT,
+  DECREMENT,
   CLEAR_ITEMS,
   SET_ITEMS,
-  TRASH_BUTTON,
+  REMOVE_ITEM,
 } from "./constants";
+import { toast } from "react-toastify";
 
 export const addItem = (item) => {
-  return {
-    type: ADD_ITEM,
-    item: {
-      ...item,
-      product: item.product || item,
-    },
+  return (dispatch) => {
+    dispatch({
+      type: ADD_ITEM,
+      item: {
+        ...item,
+        product: item.product || item,
+      },
+    });
+    toast.success("Item has added to cart");
   };
 };
 
-export const removeItem = (item) => {
+export const incrementItem = (item) => {
   return {
-    type: REMOVE_ITEM,
+    type: INCREMENT,
+    item,
+  };
+};
+
+export const decrementItem = (item) => {
+  return {
+    type: DECREMENT,
     item,
   };
 };
 
 export const trashItem = (item) => {
-  return {
-    type: TRASH_BUTTON,
-    item,
+  return (dispatch) => {
+    dispatch({
+      type: REMOVE_ITEM,
+      item,
+    });
+    toast.success("Item has been removed");
   };
 };
 
 export const clearItems = () => {
-  return {
-    type: CLEAR_ITEMS,
+  return (dispatch) => {
+    dispatch({ type: CLEAR_ITEMS });
+    toast.success("All item has been removed");
   };
 };
 

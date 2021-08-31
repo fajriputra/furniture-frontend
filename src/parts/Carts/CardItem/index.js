@@ -2,7 +2,7 @@ import React from "react";
 import propTypes from "prop-types";
 import { apiHost } from "config";
 import { useDispatch } from "react-redux";
-import { addItem, removeItem, trashItem } from "store/Cart/actions";
+import { decrementItem, incrementItem, trashItem } from "store/Cart/actions";
 import { formatRupiah } from "helpers/formatRupiah";
 
 import { ReactComponent as IconTrash } from "assets/images/icons/icon-trash.svg";
@@ -27,7 +27,7 @@ export default function CardItem({ items }) {
         ) : (
           items?.map((item) => {
             return (
-              <div className="row mb-4" key={item._id}>
+              <div className="row outter-row" key={item._id}>
                 <div className="col-auto col-md-8 ">
                   <Card
                     imgUrl={`${apiHost}/images/${item?.image_url}`}
@@ -52,14 +52,15 @@ export default function CardItem({ items }) {
                     <div className="btn-action">
                       <Button
                         className="btn minus"
-                        onClick={() => dispatch(removeItem(item))}
+                        onClick={() => dispatch(decrementItem(item))}
+                        isDisabled={item.qty === 1}
                       >
                         -
                       </Button>
                       <div className="qty">{item?.qty}</div>
                       <Button
                         className="btn plus"
-                        onClick={() => dispatch(addItem(item))}
+                        onClick={() => dispatch(incrementItem(item))}
                       >
                         +
                       </Button>

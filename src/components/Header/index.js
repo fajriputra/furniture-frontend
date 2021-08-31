@@ -14,6 +14,7 @@ import UserLink from "components/UserProfile";
 export default function Header(props) {
   const [isCollapse, setCollapse] = useState(true);
   const auth = useSelector((state) => state.auth);
+  const cart = useSelector((state) => state.cart);
 
   const getNavLinksClass = (path) => {
     return props.location.pathname === path ? " active" : "";
@@ -55,7 +56,7 @@ export default function Header(props) {
               })}
             </ul>
             {auth?.user ? (
-              <UserLink />
+              <UserLink items={cart} />
             ) : (
               <>
                 <Button type="link" className="btn btn-login" href="/login">

@@ -7,9 +7,13 @@ import { formatTime } from "helpers/formatTime";
 import Button from "components/Button";
 
 import "./user-profile.scss";
+import { sumQty } from "helpers/sum-qty";
 
-export default function UserLink() {
+export default function UserLink({ items }) {
   const auth = useSelector((state) => state.auth);
+
+  let totalCart = sumQty(items);
+
   return (
     <>
       <div className="line">|</div>
@@ -22,7 +26,6 @@ export default function UserLink() {
       <Button type="link" className="btn p-0" href="/account">
         <div className="auth-image rounded-circle d-flex justify-content-center align-items-center">
           <span className="fw-bold">
-            {" "}
             {auth?.user?.name?.slice(0, 1).toUpperCase()}
           </span>
         </div>
@@ -30,6 +33,7 @@ export default function UserLink() {
       <Button type="link" className="btn" href="/cart">
         <IconCartHeader />
       </Button>
+      <div className="ui-qty rounded-circle">{totalCart}</div>
     </>
   );
 }

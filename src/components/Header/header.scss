@@ -46,6 +46,12 @@ header {
       }
 
       li.nav-item {
+        @media (min-width: 992px) {
+          &:last-of-type {
+            padding-right: 1.875rem;
+          }
+        }
+
         &.active {
           a.nav-link {
             font-weight: 600;
@@ -68,7 +74,6 @@ header {
 
             &:hover {
               color: #ffb855;
-
               transition: all 200ms;
             }
           }

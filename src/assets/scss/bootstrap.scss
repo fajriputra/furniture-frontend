@@ -115,6 +115,11 @@ p {
   }
 }
 
+.custom-color-toast {
+  color: #000000;
+  letter-spacing: 2px;
+}
+
 .form-class {
   @media (min-width: 992px) {
     width: 60%;
@@ -160,10 +165,6 @@ p {
     @media (max-width: 768px) {
       width: 100%;
       margin-top: 1.375rem;
-    }
-
-    @media (min-width: 992px) {
-      margin: 0 1rem;
     }
 
     &:hover {

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { showSuccess } from "helpers/notif";
 import { registerUser } from "helpers/api/auth";
 
 import InputText from "components/Form/InputText";
 import Button from "components/Button";
 import useTogglePassword from "hooks/useTogglePassword";
+import { toast } from "react-toastify";
 
 const statuslist = {
   idle: "idle",
@@ -19,10 +19,6 @@ const statuslist = {
 export default function Register(props) {
   const [status, setStatus] = useState(statuslist.idle);
   const [typePassword, Toggle] = useTogglePassword();
-  const [alert, setAlert] = useState({
-    error: "",
-    success: "",
-  });
   const history = useHistory();
 
   const {
@@ -36,10 +32,7 @@ export default function Register(props) {
   const onSubmit = async (formData) => {
     setStatus(statuslist.process);
 
-    const { data } = await registerUser(formData);
-
     const { password, password_confirmation } = formData;
-
     // cek password & password_confirmation sama atau tidak
     if (password !== password_confirmation) {
       return setError(
@@ -51,6 +44,8 @@ export default function Register(props) {
         setStatus(statuslist.idle)
       );
     }
+
+    const { data } = await registerUser(formData);
 
     // cek masing2 error pada fields
     if (data.error) {
@@ -70,13 +65,12 @@ export default function Register(props) {
     }
 
     // menampilkan alert jika register success
-    setAlert({ error: "", success: data.message });
-
+    toast.success(data.message);
     setStatus(statuslist.success);
 
     setTimeout(() => {
       history.push("/login");
-    }, 4000);
+    }, 2000);
   };
 
   return (
@@ -100,10 +94,6 @@ export default function Register(props) {
             </h1>
 
             <form className="form-class" onSubmit={handleSubmit(onSubmit)}>
-              <div className="alert-wrapper" style={{ width: "100%" }}>
-                {alert.success && showSuccess(alert.success)}
-              </div>
-
               <div className="form-group position-relative">
                 <label htmlFor="name" className="pb-2">
                   Name
