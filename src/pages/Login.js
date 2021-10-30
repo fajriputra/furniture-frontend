@@ -135,18 +135,18 @@ export default function Login(props) {
                     trigger("password");
                   }}
                 />
+                <span className="password-toggle-icon">{Toggle}</span>
                 {errors?.password && (
                   <p className="error-helpers">{errors?.password?.message}</p>
                 )}
-                <span className="password-toggle-icon">{Toggle}</span>
               </div>
-              <Button
-                className="btn p-0 d-flex justify-content-end"
-                type="link"
-                href="/forgot-password"
-              >
-                <p className="link pe-2">Forgot your password ?</p>
-              </Button>
+
+              <div style={{ maxWidth: "fit-content" }} className="ms-auto">
+                <Button className="btn p-0" type="link" href="/forgot-password">
+                  <p className="link pe-2 mb-0">Forgot your password ?</p>
+                </Button>
+              </div>
+
               <Button
                 className="btn btn-login btn-loading w-100 mt-4"
                 style={{ height: 60 }}

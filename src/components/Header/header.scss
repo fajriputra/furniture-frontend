@@ -35,10 +35,6 @@ header {
         }
       }
 
-      .collapse {
-        transition: all 1000ms;
-      }
-
       &-collapse {
         @media (max-width: 768px) {
           margin-top: 0.9375rem;
@@ -46,12 +42,6 @@ header {
       }
 
       li.nav-item {
-        @media (min-width: 992px) {
-          &:last-of-type {
-            padding-right: 1.875rem;
-          }
-        }
-
         &.active {
           a.nav-link {
             font-weight: 600;
@@ -77,6 +67,12 @@ header {
               transition: all 200ms;
             }
           }
+        }
+      }
+
+      .btn-login {
+        @media (min-width: 992px) {
+          margin-left: 1.875rem;
         }
       }
     }

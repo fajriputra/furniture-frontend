@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { useSelector } from "react-redux";
-
 import { dataLink } from "./datalink";
+import { ReactComponent as Logo } from "assets/images/icons/icon-logo.svg";
+import { ReactComponent as Close } from "assets/images/icons/icon-close.svg";
 
-import Logo from "assets/images/icons/icon-logo.svg";
+import useClicked from "hooks/useClicked";
 import Button from "components/Button";
-
-import "./header.scss";
 import NavItemLink from "components/NavItemLink";
 import UserLink from "components/UserProfile";
 
+import "./header.scss";
+
 export default function Header(props) {
-  const [isCollapse, setCollapse] = useState(true);
+  const { handleClick, click, refClick } = useClicked();
   const auth = useSelector((state) => state.auth);
   const cart = useSelector((state) => state.cart);
 
@@ -20,24 +21,26 @@ export default function Header(props) {
     return props.location.pathname === path ? " active" : "";
   };
 
-  const handleCollapse = () => setCollapse(!isCollapse);
-
   return (
-    <header className="mx-auto pt-4">
+    <header className="mx-auto pt-4" ref={refClick}>
       <div className="container-fluid header">
         <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
           <Button className="logo-brand" type="link" href="/">
-            <img src={Logo} alt="Lake Coast" className="img-cover" />
+            <Logo className="img-cover" />
           </Button>
           <Button
             className="navbar-toggler"
             type="button"
-            onClick={handleCollapse}
+            onClick={handleClick}
           >
-            <span className="navbar-toggler-icon"></span>
+            {click ? (
+              <Close width={30} height={20} className="close" />
+            ) : (
+              <span className="navbar-toggler-icon"></span>
+            )}
           </Button>
           <div
-            className={`${isCollapse ? "collapse" : ""} navbar-collapse`}
+            className={`${!click ? "collapse" : ""} navbar-collapse`}
             id="navbarNav"
           >
             <ul className="navbar-nav ms-auto fw-light">
@@ -56,7 +59,7 @@ export default function Header(props) {
               })}
             </ul>
             {auth?.user ? (
-              <UserLink items={cart} />
+              <UserLink items={cart} {...props} />
             ) : (
               <>
                 <Button type="link" className="btn btn-login" href="/login">

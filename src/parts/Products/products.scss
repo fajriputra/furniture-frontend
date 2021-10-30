@@ -1,7 +1,6 @@
 .products {
   .mobile {
     justify-content: center;
-    // overflow: hidden;
     @media (min-width: 992px) {
       justify-content: space-evenly;
     }

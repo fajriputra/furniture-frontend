@@ -13,6 +13,7 @@ import Cart from "pages/Cart";
 import { listen } from "helpers/listener";
 import { getCart } from "helpers/api/cart";
 import { ToastContainer } from "react-toastify";
+import Logout from "pages/Logout";
 
 function App() {
   // memanggil fungsi listen sekali saja saat komponent pertama kali selesai di render
@@ -21,12 +22,9 @@ function App() {
     getCart();
   }, []);
 
-  // const notify = () => toast("Test only");
-
   return (
     <>
       <div className="App">
-        {/* <button onClick={notify}>click</button> */}
         <Router>
           <Switch>
             <Route exact path="/" component={Homepage} />
@@ -34,6 +32,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/products" component={Product} />
             <Route exact path="/cart" component={Cart} />
+            <Route exact path="/logout" component={Logout} />
           </Switch>
         </Router>
         <ToastContainer

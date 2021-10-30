@@ -823,7 +823,7 @@ $form-select-line-height: $input-line-height !default;
 $form-select-color: $input-color !default;
 $form-select-bg: $input-bg !default;
 $form-select-disabled-color: null !default;
-$form-select-disabled-bg: $gray-200 !default;
+$form-select-disabled-bg: #eefaff !default;
 $form-select-disabled-border-color: $input-disabled-border-color !default;
 $form-select-bg-position: right $form-select-padding-x center !default;
 $form-select-bg-size: 16px 12px !default; // In pixels because image dimensions
@@ -843,8 +843,7 @@ $form-select-box-shadow: $box-shadow-inset !default;
 
 $form-select-focus-border-color: $input-focus-border-color !default;
 $form-select-focus-width: $input-focus-width !default;
-$form-select-focus-box-shadow: 0 0 0 $form-select-focus-width
-  $input-btn-focus-color !default;
+$form-select-focus-box-shadow: none;
 
 $form-select-padding-y-sm: $input-padding-y-sm !default;
 $form-select-padding-x-sm: $input-padding-x-sm !default;

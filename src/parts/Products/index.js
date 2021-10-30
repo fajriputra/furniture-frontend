@@ -2,20 +2,18 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import SyncLoader from "react-spinners/SyncLoader";
 
-import { ReactComponent as BtnCart } from "assets/images/icons/icon-cart-header.svg";
 import { apiHost } from "config.js";
+import { ReactComponent as BtnCart } from "assets/images/icons/icon-cart-header.svg";
 import { fetchProducts, setKeyword, setPage } from "store/Products/actions";
-
+import { addItem } from "store/Cart/actions";
 import { useCategories } from "hooks/useCategories";
+import { formatRupiah } from "helpers/formatRupiah";
 import Categories from "components/Categories";
 import Search from "components/Search";
-
 import Card from "components/Card";
 import Pagination from "components/Pagination";
 
 import "./products.scss";
-import { addItem } from "store/Cart/actions";
-import { formatRupiah } from "helpers/formatRupiah";
 
 export default function Products() {
   const dispatch = useDispatch();
@@ -42,11 +40,7 @@ export default function Products() {
   return (
     <section className="products">
       <div className="container">
-        <Categories
-          isActive={filter}
-          button={allCategories}
-          onTabChange={filter}
-        />
+        <Categories button={allCategories} onTabChange={filter} />
 
         <Search
           value={products.keyword}

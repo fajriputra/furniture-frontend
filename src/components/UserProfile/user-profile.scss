@@ -16,16 +16,53 @@ h5.auth-user {
   }
 }
 
-.auth-image {
-  width: 50px;
-  height: 50px;
-  background-color: #ffb855;
+.drop-nav {
+  position: relative;
+
+  .auth-image {
+    width: 50px;
+    height: 50px;
+    background-color: #ffb855;
+  }
+
+  .dropdown {
+    position: absolute;
+    background: #f4f5f8;
+    min-width: max-content;
+    display: none;
+    right: 0;
+    top: 3.75rem;
+    text-align: right;
+    border-radius: 0.375rem;
+    z-index: 1;
+
+    li {
+      display: block;
+    }
+  }
+
+  .arrow.clicked {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transition: ease-in-out 0.2s;
+  }
+
+  .arrow.not-clicked {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transition: ease-in-out 0.2s;
+  }
+
+  .dropdown.clicked {
+    display: block;
+    transition: ease-in-out 0.2s;
+    box-shadow: -8px 8px 58px 0px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .ui-qty {
-  position: absolute;
-  right: 33%;
-  bottom: 30px;
+  top: 0.125rem;
+  right: 0.125rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,9 +72,4 @@ h5.auth-user {
   color: #000000;
   font-weight: 500;
   font-size: 0.875rem;
-
-  @media (min-width: 992px) {
-    right: 0.125rem;
-    top: 1.0625rem;
-  }
 }

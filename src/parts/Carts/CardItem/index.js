@@ -17,13 +17,16 @@ export default function CardItem({ items }) {
 
   return (
     <>
-      <div className="cart-item">
+      <div
+        className={[
+          "cart-item",
+          !items.length ? "justify-content-center" : null,
+        ].join(" ")}
+      >
         {!items.length ? (
-          <div className="text-center">
-            <h5 style={{ textTransform: "uppercase", letterSpacing: 2 }}>
-              you don't have item yet
-            </h5>
-          </div>
+          <h5 className="text-center text-uppercase">
+            you don't have item yet
+          </h5>
         ) : (
           items?.map((item) => {
             return (

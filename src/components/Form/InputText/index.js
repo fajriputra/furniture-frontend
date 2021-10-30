@@ -37,6 +37,7 @@ const InputText = React.forwardRef(
             onKeyUp={onKeyUp}
             onKeyPress={onKeyPress}
             ref={ref}
+            autoComplete="off"
           />
         </div>
       </div>

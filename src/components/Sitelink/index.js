@@ -27,7 +27,7 @@ export default function Sitelink() {
             <ul className="list-group list-group-flush">
               <NavItemLink
                 className="list-group-item bg-transparent"
-                linkClass="btn p-0"
+                linkClass="btn p-0 text-white"
                 type="link"
                 href="/about"
               >
@@ -35,7 +35,7 @@ export default function Sitelink() {
               </NavItemLink>
               <NavItemLink
                 className="list-group-item bg-transparent"
-                linkClass="btn p-0"
+                linkClass="btn p-0 text-white"
                 type="link"
                 href="/products"
               >
@@ -43,7 +43,7 @@ export default function Sitelink() {
               </NavItemLink>
               <NavItemLink
                 className="list-group-item bg-transparent"
-                linkClass="btn p-0"
+                linkClass="btn p-0 text-white"
                 type="link"
                 href="/promotion"
               >
@@ -51,7 +51,7 @@ export default function Sitelink() {
               </NavItemLink>
               <NavItemLink
                 className="list-group-item bg-transparent"
-                linkClass="btn p-0"
+                linkClass="btn p-0 text-white"
                 type="link"
                 href="/career"
               >
@@ -64,7 +64,7 @@ export default function Sitelink() {
             <ul className="list-group list-group-flush">
               <NavItemLink
                 className="list-group-item bg-transparent"
-                linkClass="btn p-0"
+                linkClass="btn p-0 text-white"
                 type="link"
                 href="/catalog"
               >
@@ -72,7 +72,7 @@ export default function Sitelink() {
               </NavItemLink>
               <NavItemLink
                 className="list-group-item bg-transparent"
-                linkClass="btn p-0"
+                linkClass="btn p-0 text-white"
                 type="link"
                 href="/plan"
               >
@@ -80,7 +80,7 @@ export default function Sitelink() {
               </NavItemLink>
               <NavItemLink
                 className="list-group-item bg-transparent"
-                linkClass="btn p-0"
+                linkClass="btn p-0 text-white"
                 type="link"
                 href="/service"
               >
@@ -88,7 +88,7 @@ export default function Sitelink() {
               </NavItemLink>
               <NavItemLink
                 className="list-group-item bg-transparent"
-                linkClass="btn p-0"
+                linkClass="btn p-0 text-white"
                 type="link"
                 href="/terms"
               >
@@ -108,7 +108,7 @@ export default function Sitelink() {
                   href="tel:+622128992988"
                 >
                   <IconPhone className="me-3" />
-                  021 - 2899 - 2988
+                  <span className="text-white">021 - 2899 - 2988</span>
                 </Button>
               </li>
               <li className="list-group-item bg-transparent">
@@ -120,7 +120,7 @@ export default function Sitelink() {
                   href="mailto:support@lakecoast.com"
                 >
                   <IconMessage className="me-3" />
-                  lakecoast@gmail.com
+                  <span className="text-white">lakecoast@gmail.com</span>
                 </Button>
               </li>
             </ul>

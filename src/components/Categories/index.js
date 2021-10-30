@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Button from "components/Button";
 
 import "./categories.scss";
 
-export default function Categories({ isActive, button, onTabChange }) {
+export default function Categories({ button, onTabChange }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleOnClick = (index) => setActiveIndex(index);
+
   return (
     <section className="categories">
       <div className="container">
@@ -14,17 +18,22 @@ export default function Categories({ isActive, button, onTabChange }) {
           </div>
           <div className="col-12 col-md-7">
             <div className="categories-select text-center">
-              {button?.map((cat, i) => {
+              {button?.map((cat, index) => {
                 return (
                   <Button
-                    key={i}
-                    className={[
-                      "btn p-0",
-                      isActive ? "fw-bold" : "fw-light",
-                    ].join(" ")}
+                    key={index}
+                    className="btn p-0"
                     onClick={() => onTabChange(cat)}
                   >
-                    <p className="paragraph">{cat}</p>
+                    <p
+                      className={[
+                        "paragraph",
+                        activeIndex === index ? "fw-bold" : "fw-light",
+                      ].join(" ")}
+                      onClick={() => handleOnClick(index)}
+                    >
+                      {cat}
+                    </p>
                   </Button>
                 );
               })}
@@ -35,47 +44,3 @@ export default function Categories({ isActive, button, onTabChange }) {
     </section>
   );
 }
-
-// const [ctg, setCtg] = useState([]);
-// const [, setLoading] = useState(true);
-
-// useEffect(() => {
-//   const getCategory = async () => {
-//     try {
-//       const res = await axios.get("/api/categories");
-
-//       const { status, data } = res;
-
-//       if (status !== 200) {
-//         setLoading(true);
-//       } else {
-//         setLoading(false);
-//         setCtg(data);
-//       }
-//     } catch (error) {
-//       alert(error);
-//     }
-//   };
-
-//   getCategory();
-// }, []);
-
-// {!ctg.length ? (
-//               <div className="loader mt-2 mx-auto">
-//                 <SyncLoader color="#d8d8d8" />
-//               </div>
-//             ) : (
-//               ctg.map((item) => {
-//                 return (
-//                   <Button
-//                     key={item._id}
-//                     className={["btn p-0", isActive ? "fw-bold" : ""].join(
-//                       " "
-//                     )}
-//                     onClick={() => onPageChange(item)}
-//                   >
-//                     <p className="paragraph">{item.name}</p>
-//                   </Button>
-//                 );
-//               })
-//             )}
